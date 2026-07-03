@@ -1,0 +1,60 @@
+---
+// NOTE: Dummy/illustrative testimonials with fictional names & hotels.
+// Replace with real customer quotes before going to production.
+const testimonials = [
+  {
+    quote:
+      'Sejak pakai GuestChat, tidak ada lagi pesan tamu yang terlewat. Balasan jadi jauh lebih cepat dan tim front-desk kami tidak lagi kewalahan saat high season.',
+    name: 'Rina Puspita',
+    role: 'Front Office Manager · Grand Serena Hotel, Bandung',
+    initials: 'RP',
+    avatar: 'bg-brand-100 text-brand',
+  },
+  {
+    quote:
+      'AI Agent-nya membalas pertanyaan umum di luar jam kerja. Kami bisa fokus ke tamu yang butuh perhatian khusus, dan konversi booking dari chat meningkat.',
+    name: 'Andi Wijaya',
+    role: 'Guest Relations Lead · Puri Lestari Resort, Ubud',
+    initials: 'AW',
+    avatar: 'bg-[#dbe6f5] text-[#2f5b9c]',
+  },
+  {
+    quote:
+      'Dashboard reputasi membantu kami menangkap keluhan sebelum jadi ulasan buruk. Mengelola 4 properti dari satu akun juga sangat menghemat waktu.',
+    name: 'Maria Tanujaya',
+    role: 'Operations Director · Kirana Hotels Group',
+    initials: 'MT',
+    avatar: 'bg-[#f5e2dc] text-[#b4552f]',
+  },
+];
+---
+
+<section id="testimoni" class="border-y border-[#f0f0f2] bg-zinc-50">
+  <div class="mx-auto max-w-[1120px] px-5 py-[84px] sm:px-7">
+    <div class="mx-auto mb-12 max-w-[600px] text-center">
+      <span class="font-mono text-xs font-medium uppercase tracking-[0.05em] text-brand">Testimoni</span>
+      <h2 class="mt-3.5 text-[28px] font-extrabold leading-[1.15] tracking-[-0.025em] sm:text-[36px]">
+        Dipercaya tim hospitality
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+      {
+        testimonials.map((t) => (
+          <div class="rounded-2xl border border-[#ececee] bg-white p-[26px]">
+            <div class="mb-3.5 text-[15px] tracking-[2px] text-status-warn">★★★★★</div>
+            <p class="m-0 mb-5 text-[15px] leading-[1.6] text-zinc-700">"{t.quote}"</p>
+            <div class="flex items-center gap-3">
+              <span class={`flex h-[42px] w-[42px] flex-none items-center justify-center rounded-full text-[14px] font-bold ${t.avatar}`}>
+                {t.initials}
+              </span>
+              <div>
+                <div class="text-sm font-bold">{t.name}</div>
+                <div class="text-[12.5px] text-zinc-500">{t.role}</div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

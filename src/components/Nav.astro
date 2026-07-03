@@ -1,0 +1,94 @@
+---
+import { waHref } from '../data/site';
+
+const links = [
+  { href: '#inbox', label: 'Fitur' },
+  { href: '#ai', label: 'AI Agent' },
+  { href: '#mobile', label: 'Mobile' },
+  { href: '#faq', label: 'FAQ' },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-[#ececee] bg-white/80 backdrop-blur-md">
+  <nav class="mx-auto flex max-w-[1200px] items-center justify-between gap-6 px-5 py-4 sm:px-7">
+    <a href="#top" class="flex items-center gap-2.5 no-underline">
+      <img src="/assets/logos/guestchat.webp" alt="Logo GuestChat" width="36" height="36" class="h-9 w-9" />
+      <span class="text-[19px] font-extrabold tracking-[-0.02em] text-zinc-900">GuestChat</span>
+    </a>
+
+    <div class="hidden items-center gap-[30px] md:flex">
+      {
+        links.map((l) => (
+          <a href={l.href} class="text-[15px] font-medium text-zinc-600 no-underline transition-colors hover:text-brand">
+            {l.label}
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="hidden items-center gap-3 md:flex">
+      <a href="#demo" class="px-2 py-2.5 text-[15px] font-semibold text-zinc-700 no-underline">Masuk</a>
+      <a
+        href="#demo"
+        class="rounded-[10px] bg-brand px-5 py-[11px] text-[15px] font-semibold text-white no-underline shadow-[0_4px_14px_rgba(59,122,46,0.25)] transition-colors hover:bg-brand-dark"
+        >Coba Gratis</a
+      >
+    </div>
+
+    <button
+      id="nav-toggle"
+      type="button"
+      aria-label="Buka menu"
+      aria-expanded="false"
+      aria-controls="nav-mobile"
+      class="flex h-10 w-10 items-center justify-center rounded-[10px] text-zinc-700 hover:bg-zinc-100 md:hidden"
+    >
+      <svg class="nav-open" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        ><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg
+      >
+      <svg class="nav-close hidden" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        ><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg
+      >
+    </button>
+  </nav>
+
+  <div id="nav-mobile" class="hidden border-t border-[#ececee] bg-white md:hidden">
+    <div class="mx-auto flex max-w-[1200px] flex-col gap-1 px-5 py-3">
+      {
+        links.map((l) => (
+          <a href={l.href} class="rounded-lg px-3 py-2.5 text-[15px] font-medium text-zinc-700 no-underline hover:bg-zinc-50">
+            {l.label}
+          </a>
+        ))
+      }
+      <a href="#demo" class="rounded-lg px-3 py-2.5 text-[15px] font-medium text-zinc-700 no-underline hover:bg-zinc-50">Masuk</a>
+      <a
+        href="#demo"
+        class="mt-1 rounded-[10px] bg-brand px-3 py-3 text-center text-[15px] font-semibold text-white no-underline hover:bg-brand-dark"
+        >Coba Gratis</a
+      >
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-mobile');
+  const openIcon = toggle?.querySelector('.nav-open');
+  const closeIcon = toggle?.querySelector('.nav-close');
+
+  function setOpen(open: boolean) {
+    if (!menu || !toggle) return;
+    menu.classList.toggle('hidden', !open);
+    openIcon?.classList.toggle('hidden', open);
+    closeIcon?.classList.toggle('hidden', !open);
+    toggle.setAttribute('aria-expanded', String(open));
+  }
+
+  toggle?.addEventListener('click', () => {
+    setOpen(menu?.classList.contains('hidden') ?? false);
+  });
+
+  // Close the menu after tapping a link.
+  menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+</script>

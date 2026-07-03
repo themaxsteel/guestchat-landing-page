@@ -1,0 +1,79 @@
+---
+const points = [
+  {
+    title: 'Paham seluruh info hotel Anda',
+    body: 'Ketersediaan kamar, tarif, kebijakan, layanan tambahan, kontak, hingga destinasi sekitar.',
+  },
+  {
+    title: 'Menjawab dari data, bukan mengarang',
+    body: 'Semua balasan bersumber dari informasi hotel Anda. Tidak yakin? Otomatis diteruskan ke staf.',
+  },
+  {
+    title: 'Siap dalam hitungan menit',
+    body: 'Cukup hubungkan sumber informasi hotel Anda — tanpa setup teknis yang rumit.',
+  },
+];
+---
+
+<section id="ai" class="bg-forest-950 text-white">
+  <div class="mx-auto grid max-w-[1120px] grid-cols-1 items-center gap-14 px-5 py-[88px] sm:px-7 lg:grid-cols-2 lg:gap-[58px]">
+    <div>
+      <span class="font-mono text-xs font-medium uppercase tracking-[0.05em] text-brand-lime">AI Agent</span>
+      <h2 class="mt-3.5 text-[30px] font-extrabold leading-[1.12] tracking-[-0.025em] text-balance text-white sm:text-[38px]">
+        AI yang tahu jawabannya — karena ia paham hotel Anda
+      </h2>
+      <p class="mb-[30px] mt-[18px] text-[17px] leading-[1.65] text-[#c3ccbb]">
+        Bukan chatbot generik. AI Agent belajar dari data hotel Anda — ketersediaan kamar, tarif, kebijakan, hingga
+        layanan dan destinasi sekitar — lalu menjawab tamu dengan akurat. Pilih mode draf untuk staf, atau balas otomatis
+        penuh di WhatsApp.
+      </p>
+      <div class="flex flex-col gap-4">
+        {
+          points.map((p) => (
+            <div class="flex items-start gap-[13px]">
+              <span class="flex h-[26px] w-[26px] flex-none items-center justify-center rounded-lg bg-forest-700">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                  <path d="M20 6 9 17l-5-5" stroke="#a3d977" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <div>
+                <div class="text-[15.5px] font-bold text-white">{p.title}</div>
+                <div class="mt-0.5 text-sm leading-[1.5] text-[#a7b09d]">{p.body}</div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- chat card -->
+    <div class="animate-floaty">
+      <div class="rounded-2xl border border-forest-600 bg-forest-900 p-5 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.7)]">
+        <div class="mb-4 flex items-center gap-2">
+          <span class="flex h-[30px] w-[30px] items-center justify-center rounded-lg bg-brand-lime">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+              ><rect x="5" y="8" width="14" height="10" rx="3" stroke="#16250f" stroke-width="2"></rect><path
+                d="M12 4v4M9 13h.01M15 13h.01"
+                stroke="#16250f"
+                stroke-width="2"
+                stroke-linecap="round"></path></svg
+            >
+          </span>
+          <span class="text-sm font-bold text-white">Aria · AI Agent</span>
+          <span class="ml-auto rounded-md bg-forest-700 px-[9px] py-1 text-[11px] font-semibold text-brand-lime">Auto-Reply ON</span>
+        </div>
+        <div class="rounded-[11px] border border-[#24361b] bg-forest-950 p-3.5 text-[13px] leading-[1.6] text-[#dfe7d6]">
+          <span class="font-mono text-[11px] text-[#8fb673]">membalas tamu…</span><br />
+          Tentu, Bu Sarah! Deluxe Suite kami tersedia 12–15 Juli. Sudah termasuk sarapan untuk 2 orang dan akses infinity pool.
+          Apakah ingin saya siapkan penawarannya sekarang?<span
+            class="ml-0.5 inline-block h-[15px] w-[7px] -translate-y-px bg-brand-lime align-text-bottom"></span>
+        </div>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="rounded-md border border-forest-600 bg-forest-800 px-2.5 py-[5px] text-[11px] text-[#c3ccbb]">Nada: Ramah</span>
+          <span class="rounded-md border border-forest-600 bg-forest-800 px-2.5 py-[5px] text-[11px] text-[#c3ccbb]">Bahasa Indonesia</span>
+          <span class="rounded-md border border-forest-600 bg-forest-800 px-2.5 py-[5px] text-[11px] text-[#c3ccbb]">Debounce 3s</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

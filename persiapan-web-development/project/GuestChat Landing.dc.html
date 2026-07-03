@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #18181b; background: #ffffff; -webkit-font-smoothing: antialiased; }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</helmet>
+
+<div style="min-height:100vh;overflow-x:hidden;">
+
+  <!-- ============ NAV ============ -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.82);backdrop-filter:blur(12px);border-bottom:1px solid #ececee;">
+    <nav style="max-width:1200px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+        <span style="width:34px;height:34px;border-radius:10px;background:#3b7a2e;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(59,122,46,0.28);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H9l-4 4V5.5Z" fill="#ffffff"/></svg>
+        </span>
+        <span style="font-weight:800;font-size:19px;letter-spacing:-0.02em;color:#18181b;">GuestChat</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:30px;">
+        <a href="#fitur" style="text-decoration:none;color:#52525b;font-weight:500;font-size:15px;">Fitur</a>
+        <a href="#ai" style="text-decoration:none;color:#52525b;font-weight:500;font-size:15px;">AI Agent</a>
+        <a href="#mobile" style="text-decoration:none;color:#52525b;font-weight:500;font-size:15px;">Mobile</a>
+        <a href="#testimoni" style="text-decoration:none;color:#52525b;font-weight:500;font-size:15px;">Testimoni</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a href="#demo" style="text-decoration:none;color:#3f3f46;font-weight:600;font-size:15px;padding:10px 8px;">Masuk</a>
+        <a href="#demo" style="text-decoration:none;background:#3b7a2e;color:#fff;font-weight:600;font-size:15px;padding:11px 20px;border-radius:10px;box-shadow:0 4px 14px rgba(59,122,46,0.25);" style-hover="background:#2c5c22;">Coba Gratis</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="top" style="position:relative;background:#eef4e6;border-bottom:1px solid #f0f0f2;overflow:hidden;">
+    <!-- product screenshot background -->
+    <div aria-hidden="true" style="position:absolute;inset:0;background-image:url('assets/hero-product.png');background-size:cover;background-position:right center;background-repeat:no-repeat;"></div>
+    <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(90deg,#eef4e6 0%,#eef4e6 24%,rgba(238,244,230,0.9) 40%,rgba(238,244,230,0.45) 55%,rgba(238,244,230,0) 72%);"></div>
+    <div style="position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:96px 28px 104px;">
+      <!-- copy -->
+      <div style="max-width:552px;">
+        <span style="display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;color:#3b7a2e;background:#e4efd6;padding:7px 13px;border-radius:999px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#3b7a2e;"></span>Untuk Grup &amp; Jaringan Hotel
+        </span>
+        <h1 style="font-size:52px;line-height:1.06;letter-spacing:-0.03em;font-weight:800;margin:22px 0 0;color:#18181b;text-wrap:balance;">
+          Satu inbox untuk <span style="color:#3b7a2e;">semua percakapan</span> tamu hotel Anda
+        </h1>
+        <p style="font-size:19px;line-height:1.6;color:#52525b;margin:22px 0 0;max-width:520px;">
+          WhatsApp, email, dan live chat website dalam satu layar — dibantu AI Agent yang membalas otomatis dan dashboard reputasi dari semua OTA. Balas lebih cepat, jangan pernah kehilangan satu pesan pun.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;">
+          <a href="#demo" style="text-decoration:none;display:inline-flex;align-items:center;gap:9px;background:#3b7a2e;color:#fff;font-weight:700;font-size:16px;padding:15px 26px;border-radius:12px;box-shadow:0 8px 22px rgba(59,122,46,0.28);" style-hover="background:#2c5c22;">
+            Coba Gratis
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="{{ waHref }}" style="text-decoration:none;display:inline-flex;align-items:center;gap:9px;background:#fff;color:#18181b;font-weight:600;font-size:16px;padding:15px 24px;border-radius:12px;border:1.5px solid #d9dcdd;" style-hover="border-color:#3b7a2e;color:#3b7a2e;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Z" stroke="#25aa5a" stroke-width="2" stroke-linejoin="round"/><path d="M8.5 7.8c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.5s.7 1.7.7 1.8-.1.3-.2.5l-.4.4c-.1.1-.3.3-.1.6s.6 1 1.3 1.6c.9.8 1.6 1 1.9 1.1s.4.1.6-.1.6-.7.8-1 .4-.2.6-.1l1.7.8c.2.1.4.2.4.3.1.3.1.9-.2 1.5s-1.3 1-1.8 1.1c-.5 0-1 .2-3.2-.7s-3.6-3.2-3.7-3.3-1-1.3-1-2.5.6-1.8.9-2Z" fill="#25aa5a"/></svg>
+            Hubungi via WhatsApp
+          </a>
+        </div>
+        <div style="display:flex;align-items:center;gap:22px;margin-top:30px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:8px;color:#52525b;font-size:14px;font-weight:500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#3b7a2e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Tanpa kartu kredit
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;color:#52525b;font-size:14px;font-weight:500;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#3b7a2e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Web · Android · iOS
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST / LOGO BAR ============ -->
+  <sc-if value="{{ showLogoBar }}" hint-placeholder-val="{{ true }}">
+  <section style="border-bottom:1px solid #f0f0f2;background:#fff;">
+    <div style="max-width:1120px;margin:0 auto;padding:34px 28px;text-align:center;">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#a1a1aa;margin:0 0 20px;">Dipercaya oleh tim hospitality di seluruh Indonesia</p>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:18px;align-items:center;">
+        <div style="height:38px;border-radius:8px;background:repeating-linear-gradient(135deg,#f4f4f5,#f4f4f5 7px,#eeeeef 7px,#eeeeef 14px);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#b8b8bd;">logo hotel</div>
+        <div style="height:38px;border-radius:8px;background:repeating-linear-gradient(135deg,#f4f4f5,#f4f4f5 7px,#eeeeef 7px,#eeeeef 14px);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#b8b8bd;">logo hotel</div>
+        <div style="height:38px;border-radius:8px;background:repeating-linear-gradient(135deg,#f4f4f5,#f4f4f5 7px,#eeeeef 7px,#eeeeef 14px);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#b8b8bd;">logo hotel</div>
+        <div style="height:38px;border-radius:8px;background:repeating-linear-gradient(135deg,#f4f4f5,#f4f4f5 7px,#eeeeef 7px,#eeeeef 14px);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#b8b8bd;">logo hotel</div>
+        <div style="height:38px;border-radius:8px;background:repeating-linear-gradient(135deg,#f4f4f5,#f4f4f5 7px,#eeeeef 7px,#eeeeef 14px);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#b8b8bd;">logo hotel</div>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <!-- ============ PROBLEM / SOLUTION ============ -->
+  <section style="background:#fafafa;border-bottom:1px solid #f0f0f2;">
+    <div style="max-width:1120px;margin:0 auto;padding:80px 28px;">
+      <div style="text-align:center;max-width:620px;margin:0 auto 48px;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#3b7a2e;">Masalahnya</span>
+        <h2 style="font-size:36px;line-height:1.15;letter-spacing:-0.025em;font-weight:800;margin:14px 0 0;">Pesan tamu tersebar di mana-mana</h2>
+        <p style="font-size:17px;color:#52525b;margin:14px 0 0;line-height:1.6;">WhatsApp pribadi, email, chat website — staf lompat antar aplikasi, konteks hilang, ulasan buruk baru ketahuan setelah terlambat.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;">
+        <div style="background:#fff;border:1px solid #eeecec;border-radius:16px;padding:28px;">
+          <div style="font-weight:700;font-size:15px;color:#71717a;margin-bottom:18px;">Tanpa GuestChat</div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;gap:11px;align-items:flex-start;"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#fbe6e6;color:#c0392b;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px;">✕</span><span style="font-size:14.5px;color:#52525b;line-height:1.5;">Pesan tersebar di banyak aplikasi — mudah terlewat.</span></div>
+            <div style="display:flex;gap:11px;align-items:flex-start;"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#fbe6e6;color:#c0392b;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px;">✕</span><span style="font-size:14.5px;color:#52525b;line-height:1.5;">Mengetik jawaban yang sama berulang-ulang.</span></div>
+            <div style="display:flex;gap:11px;align-items:flex-start;"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#fbe6e6;color:#c0392b;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px;">✕</span><span style="font-size:14.5px;color:#52525b;line-height:1.5;">Ulasan buruk di OTA baru diketahui terlambat.</span></div>
+            <div style="display:flex;gap:11px;align-items:flex-start;"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#fbe6e6;color:#c0392b;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px;">✕</span><span style="font-size:14.5px;color:#52525b;line-height:1.5;">Sulit tahu percakapan mana yang mendesak.</span></div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1.5px solid #cfe3ba;border-radius:16px;padding:28px;box-shadow:0 12px 30px -18px rgba(59,122,46,0.4);">
+          <div style="font-weight:700;font-size:15px;color:#3b7a2e;margin-bottom:18px;">Dengan GuestChat</div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;gap:11px;align-items:flex-start;"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#e3f2d5;color:#3b7a2e;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:1px;">✓</span><span style="font-size:14.5px;color:#3f3f46;line-height:1.5;">Semua kanal dalam satu inbox — nol percakapan terlewat.</span></div>
+            <div style="display:flex;gap:11px;align-items:flex-start;"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#e3f2d5;color:#3b7a2e;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:1px;">✓</span><span style="font-size:14.5px;color:#3f3f46;line-height:1.5;">AI Agent menjawab atau menyiapkan draf dalam detik.</span></div>
+            <div style="display:flex;gap:11px;align-items:flex-start;"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#e3f2d5;color:#3b7a2e;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:1px;">✓</span><span style="font-size:14.5px;color:#3f3f46;line-height:1.5;">Dashboard reputasi memantau semua ulasan OTA.</span></div>
+            <div style="display:flex;gap:11px;align-items:flex-start;"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#e3f2d5;color:#3b7a2e;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:1px;">✓</span><span style="font-size:14.5px;color:#3f3f46;line-height:1.5;">Penugasan, status, dan prioritas jelas untuk seluruh tim.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURE GRID ============ -->
+  <section id="fitur" style="background:#fff;">
+    <div style="max-width:1120px;margin:0 auto;padding:84px 28px;">
+      <div style="text-align:center;max-width:640px;margin:0 auto 52px;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#3b7a2e;">Fitur Utama</span>
+        <h2 style="font-size:36px;line-height:1.15;letter-spacing:-0.025em;font-weight:800;margin:14px 0 0;">Semua yang tim front-desk Anda butuhkan</h2>
+        <p style="font-size:17px;color:#52525b;margin:14px 0 0;line-height:1.6;">Satu platform, dirancang untuk staf hospitality bertempo tinggi — informasi padat tanpa berantakan.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+        <!-- card -->
+        <div style="border:1px solid #ececee;border-radius:16px;padding:26px;background:#fff;" style-hover="border-color:#cfe3ba;box-shadow:0 14px 30px -20px rgba(59,122,46,0.35);">
+          <span style="width:44px;height:44px;border-radius:12px;background:#eef6df;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7A2.5 2.5 0 0 1 17.5 16H9l-4 4V6.5Z" stroke="#3b7a2e" stroke-width="2" stroke-linejoin="round"/></svg>
+          </span>
+          <h3 style="font-size:18px;font-weight:700;margin:18px 0 8px;letter-spacing:-0.01em;">Inbox Terpadu</h3>
+          <p style="font-size:14.5px;color:#52525b;line-height:1.6;margin:0;">Chat &amp; email dalam satu layar, real-time via WebSocket, dengan indikator terbaca dan pengurutan cerdas berbasis prioritas.</p>
+        </div>
+        <div style="border:1px solid #ececee;border-radius:16px;padding:26px;background:#fff;" style-hover="border-color:#cfe3ba;box-shadow:0 14px 30px -20px rgba(59,122,46,0.35);">
+          <span style="width:44px;height:44px;border-radius:12px;background:#eef6df;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="5" y="8" width="14" height="10" rx="3" stroke="#3b7a2e" stroke-width="2"/><path d="M12 3.5V8M8.5 13h.01M15.5 13h.01" stroke="#3b7a2e" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <h3 style="font-size:18px;font-weight:700;margin:18px 0 8px;letter-spacing:-0.01em;">AI Agent</h3>
+          <p style="font-size:14.5px;color:#52525b;line-height:1.6;margin:0;">Balas otomatis atau saran balasan streaming, knowledge base &amp; FAQ, deteksi bahasa, plus aturan eskalasi ke staf manusia.</p>
+        </div>
+        <div style="border:1px solid #ececee;border-radius:16px;padding:26px;background:#fff;" style-hover="border-color:#cfe3ba;box-shadow:0 14px 30px -20px rgba(59,122,46,0.35);">
+          <span style="width:44px;height:44px;border-radius:12px;background:#eef6df;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 17l-5.3 2.6 1-5.8L3.5 9.7l5.9-.9L12 3.5Z" stroke="#3b7a2e" stroke-width="2" stroke-linejoin="round"/></svg>
+          </span>
+          <h3 style="font-size:18px;font-weight:700;margin:18px 0 8px;letter-spacing:-0.01em;">Reputation Management</h3>
+          <p style="font-size:14.5px;color:#52525b;line-height:1.6;margin:0;">Agregasi ulasan Booking, Agoda, Traveloka &amp; lainnya, analisis sentimen, word cloud, dan balas ulasan langsung.</p>
+        </div>
+        <div style="border:1px solid #ececee;border-radius:16px;padding:26px;background:#fff;" style-hover="border-color:#cfe3ba;box-shadow:0 14px 30px -20px rgba(59,122,46,0.35);">
+          <span style="width:44px;height:44px;border-radius:12px;background:#eef6df;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="#3b7a2e" stroke-width="2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M16 6.2a3 3 0 0 1 0 5.6M18 19a5.2 5.2 0 0 0-2.6-4.5" stroke="#3b7a2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3 style="font-size:18px;font-weight:700;margin:18px 0 8px;letter-spacing:-0.01em;">Kolaborasi Tim</h3>
+          <p style="font-size:14.5px;color:#52525b;line-height:1.6;margin:0;">Penugasan ke agent, status Resolved, catatan internal, dan penanda prioritas — seluruh tim selaras di satu tempat.</p>
+        </div>
+        <div style="border:1px solid #ececee;border-radius:16px;padding:26px;background:#fff;" style-hover="border-color:#cfe3ba;box-shadow:0 14px 30px -20px rgba(59,122,46,0.35);">
+          <span style="width:44px;height:44px;border-radius:12px;background:#eef6df;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 20V7l6-3 4 2 6-3v13M10 4v16M14 6v14" stroke="#3b7a2e" stroke-width="2" stroke-linejoin="round"/></svg>
+          </span>
+          <h3 style="font-size:18px;font-weight:700;margin:18px 0 8px;letter-spacing:-0.01em;">Multi-Properti</h3>
+          <p style="font-size:14.5px;color:#52525b;line-height:1.6;margin:0;">Kelola banyak hotel dari satu akun. Berpindah properti sekali klik dengan izin &amp; data yang terpisah per lokasi.</p>
+        </div>
+        <div style="border:1px solid #ececee;border-radius:16px;padding:26px;background:#fff;" style-hover="border-color:#cfe3ba;box-shadow:0 14px 30px -20px rgba(59,122,46,0.35);">
+          <span style="width:44px;height:44px;border-radius:12px;background:#eef6df;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2.5" stroke="#3b7a2e" stroke-width="2"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10" stroke="#3b7a2e" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <h3 style="font-size:18px;font-weight:700;margin:18px 0 8px;letter-spacing:-0.01em;">Keamanan &amp; Akses</h3>
+          <p style="font-size:14.5px;color:#52525b;line-height:1.6;margin:0;">Login 2FA &amp; reCAPTCHA, penyamaran nomor/email tamu, dan kontrol akses berbasis peran: Admin, Supervisor, Agent.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AI AGENT SPOTLIGHT ============ -->
+  <section id="ai" style="background:#0f1a0c;color:#fff;">
+    <div style="max-width:1120px;margin:0 auto;padding:88px 28px;display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center;">
+      <div>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#a3d977;">AI Agent</span>
+        <h2 style="font-size:38px;line-height:1.12;letter-spacing:-0.025em;font-weight:800;margin:14px 0 0;color:#fff;text-wrap:balance;">Asisten yang menjawab untuk Anda — 24/7</h2>
+        <p style="font-size:17px;line-height:1.65;color:#c3ccbb;margin:18px 0 30px;">Dua mode kerja: menyiapkan draf balasan untuk staf, atau membalas tamu sepenuhnya secara otomatis di WhatsApp. Atur nada, bahasa, FAQ, dan aturan eskalasi sesuai properti Anda.</p>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;gap:13px;align-items:flex-start;">
+            <span style="flex:none;width:26px;height:26px;border-radius:8px;background:#25401a;display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#a3d977" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><div style="font-weight:700;font-size:15.5px;color:#fff;">Saran balasan streaming</div><div style="font-size:14px;color:#a7b09d;line-height:1.5;margin-top:2px;">Muncul kata demi kata — staf tinggal salin, edit, atau sisipkan.</div></div>
+          </div>
+          <div style="display:flex;gap:13px;align-items:flex-start;">
+            <span style="flex:none;width:26px;height:26px;border-radius:8px;background:#25401a;display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#a3d977" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><div style="font-weight:700;font-size:15.5px;color:#fff;">Skor intent &amp; urgensi</div><div style="font-size:14px;color:#a7b09d;line-height:1.5;margin-top:2px;">Menandai High Intent, Follow-up, dan High Value otomatis.</div></div>
+          </div>
+          <div style="display:flex;gap:13px;align-items:flex-start;">
+            <span style="flex:none;width:26px;height:26px;border-radius:8px;background:#25401a;display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="#a3d977" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><div style="font-weight:700;font-size:15.5px;color:#fff;">Reservation knowledge</div><div style="font-size:14px;color:#a7b09d;line-height:1.5;margin-top:2px;">Cek ketersediaan, tipe kamar, dan harga langsung dari percakapan.</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="animation:floaty 6s ease-in-out infinite;">
+        <div style="background:#16250f;border:1px solid #2a3d20;border-radius:16px;padding:20px;box-shadow:0 30px 60px -30px rgba(0,0,0,0.7);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+            <span style="width:30px;height:30px;border-radius:8px;background:#a3d977;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="5" y="8" width="14" height="10" rx="3" stroke="#16250f" stroke-width="2"/><path d="M12 4v4M9 13h.01M15 13h.01" stroke="#16250f" stroke-width="2" stroke-linecap="round"/></svg></span>
+            <span style="font-weight:700;font-size:14px;color:#fff;">Aria · AI Agent</span>
+            <span style="margin-left:auto;font-size:11px;font-weight:600;color:#a3d977;background:#25401a;padding:4px 9px;border-radius:6px;">Auto-Reply ON</span>
+          </div>
+          <div style="background:#0f1a0c;border-radius:11px;padding:14px;font-size:13px;line-height:1.6;color:#dfe7d6;border:1px solid #24361b;">
+            <span style="color:#8fb673;font-family:'IBM Plex Mono',monospace;font-size:11px;">membalas tamu…</span><br>
+            Tentu, Bu Sarah! Deluxe Suite kami tersedia 12–15 Juli. Sudah termasuk sarapan untuk 2 orang dan akses infinity pool. Apakah ingin saya siapkan penawarannya sekarang?<span style="display:inline-block;width:7px;height:15px;background:#a3d977;margin-left:2px;vertical-align:-2px;"></span>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:12px;">
+            <span style="font-size:11px;color:#c3ccbb;background:#22331a;border:1px solid #2f4522;padding:5px 10px;border-radius:7px;">Nada: Ramah</span>
+            <span style="font-size:11px;color:#c3ccbb;background:#22331a;border:1px solid #2f4522;padding:5px 10px;border-radius:7px;">🇮🇩 Bahasa Indonesia</span>
+            <span style="font-size:11px;color:#c3ccbb;background:#22331a;border:1px solid #2f4522;padding:5px 10px;border-radius:7px;">Debounce 3s</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REPUTATION SPOTLIGHT ============ -->
+  <section style="background:#fafafa;border-top:1px solid #f0f0f2;border-bottom:1px solid #f0f0f2;">
+    <div style="max-width:1120px;margin:0 auto;padding:84px 28px;display:grid;grid-template-columns:1.1fr 1fr;gap:58px;align-items:center;">
+      <div style="order:2;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#3b7a2e;">Reputation Management</span>
+        <h2 style="font-size:36px;line-height:1.14;letter-spacing:-0.025em;font-weight:800;margin:14px 0 0;">Pantau semua ulasan, sebelum berdampak buruk</h2>
+        <p style="font-size:17px;line-height:1.6;color:#52525b;margin:16px 0 26px;">Kumpulkan ulasan dari Booking.com, Agoda, Tiket.com, Traveloka, Expedia, Trip.com, dan Airbnb dalam satu dashboard — lengkap dengan analisis sentimen dan kemampuan membalas.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span style="font-size:13px;font-weight:600;color:#3f3f46;background:#fff;border:1px solid #e4e4e7;padding:7px 13px;border-radius:8px;">Booking.com</span>
+          <span style="font-size:13px;font-weight:600;color:#3f3f46;background:#fff;border:1px solid #e4e4e7;padding:7px 13px;border-radius:8px;">Agoda</span>
+          <span style="font-size:13px;font-weight:600;color:#3f3f46;background:#fff;border:1px solid #e4e4e7;padding:7px 13px;border-radius:8px;">Traveloka</span>
+          <span style="font-size:13px;font-weight:600;color:#3f3f46;background:#fff;border:1px solid #e4e4e7;padding:7px 13px;border-radius:8px;">Tiket.com</span>
+          <span style="font-size:13px;font-weight:600;color:#3f3f46;background:#fff;border:1px solid #e4e4e7;padding:7px 13px;border-radius:8px;">Expedia</span>
+          <span style="font-size:13px;font-weight:600;color:#3f3f46;background:#fff;border:1px solid #e4e4e7;padding:7px 13px;border-radius:8px;">Airbnb</span>
+        </div>
+      </div>
+      <div style="order:1;">
+        <div style="background:#fff;border:1px solid #e7e7ea;border-radius:16px;padding:24px;box-shadow:0 22px 50px -30px rgba(24,24,27,0.3);">
+          <div style="display:flex;align-items:center;gap:20px;margin-bottom:20px;">
+            <div style="flex:none;position:relative;width:104px;height:104px;border-radius:50%;background:conic-gradient(#3b7a2e 0 72%,#e6a23c 72% 88%,#d9534f 88% 100%);display:flex;align-items:center;justify-content:center;">
+              <div style="width:70px;height:70px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                <span style="font-size:22px;font-weight:800;color:#18181b;line-height:1;">72%</span>
+                <span style="font-size:10px;color:#71717a;margin-top:2px;">positif</span>
+              </div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;gap:9px;">
+              <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="width:10px;height:10px;border-radius:3px;background:#3b7a2e;"></span><span style="color:#3f3f46;font-weight:600;">Positif</span><span style="margin-left:auto;color:#71717a;">72%</span></div>
+              <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="width:10px;height:10px;border-radius:3px;background:#e6a23c;"></span><span style="color:#3f3f46;font-weight:600;">Netral</span><span style="margin-left:auto;color:#71717a;">16%</span></div>
+              <div style="display:flex;align-items:center;gap:8px;font-size:13px;"><span style="width:10px;height:10px;border-radius:3px;background:#d9534f;"></span><span style="color:#3f3f46;font-weight:600;">Negatif</span><span style="margin-left:auto;color:#71717a;">12%</span></div>
+            </div>
+          </div>
+          <div style="border-top:1px solid #f0f0f2;padding-top:16px;display:flex;flex-direction:column;gap:11px;">
+            <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:13px;color:#3f3f46;width:88px;">Kebersihan</span><div style="flex:1;height:7px;border-radius:4px;background:#f0f0f2;overflow:hidden;"><div style="width:91%;height:100%;background:#3b7a2e;"></div></div><span style="font-size:12px;font-weight:700;color:#3b7a2e;">Excellent</span></div>
+            <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:13px;color:#3f3f46;width:88px;">Layanan</span><div style="flex:1;height:7px;border-radius:4px;background:#f0f0f2;overflow:hidden;"><div style="width:84%;height:100%;background:#3b7a2e;"></div></div><span style="font-size:12px;font-weight:700;color:#3b7a2e;">Excellent</span></div>
+            <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:13px;color:#3f3f46;width:88px;">Sarapan</span><div style="flex:1;height:7px;border-radius:4px;background:#f0f0f2;overflow:hidden;"><div style="width:52%;height:100%;background:#e6a23c;"></div></div><span style="font-size:12px;font-weight:700;color:#b8860b;">Perlu Perhatian</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MOBILE ============ -->
+  <section id="mobile" style="background:#fff;">
+    <div style="max-width:1120px;margin:0 auto;padding:88px 28px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center;">
+      <div style="display:flex;justify-content:center;">
+        <!-- phone -->
+        <div style="width:236px;height:472px;border-radius:38px;background:#18181b;padding:11px;box-shadow:0 32px 60px -26px rgba(24,24,27,0.5);animation:floaty 7s ease-in-out infinite;">
+          <div style="width:100%;height:100%;border-radius:29px;background:#f4f7ef;overflow:hidden;position:relative;">
+            <div style="position:absolute;top:9px;left:50%;transform:translateX(-50%);width:82px;height:19px;background:#18181b;border-radius:11px;"></div>
+            <div style="padding:38px 14px 0;">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <span style="font-weight:800;font-size:16px;color:#18181b;">Inbox</span>
+                <span style="font-size:10px;font-weight:700;color:#fff;background:#3b7a2e;padding:3px 8px;border-radius:8px;">99+</span>
+              </div>
+              <div style="margin-top:14px;display:flex;flex-direction:column;gap:9px;">
+                <div style="background:#fff;border-radius:12px;padding:11px;display:flex;gap:9px;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+                  <span style="width:30px;height:30px;border-radius:50%;background:#dce9cd;flex:none;"></span>
+                  <div style="flex:1;min-width:0;"><div style="font-size:12px;font-weight:700;">Sarah W.</div><div style="font-size:10.5px;color:#71717a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Kamar suite untuk 3 malam?</div></div>
+                  <span style="width:16px;height:16px;border-radius:8px;background:#3b7a2e;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none;">2</span>
+                </div>
+                <div style="background:#fff;border-radius:12px;padding:11px;display:flex;gap:9px;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+                  <span style="width:30px;height:30px;border-radius:50%;background:#dbe6f5;flex:none;"></span>
+                  <div style="flex:1;min-width:0;"><div style="font-size:12px;font-weight:700;">M. Kurniawan</div><div style="font-size:10.5px;color:#71717a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Terima kasih!</div></div>
+                </div>
+                <div style="background:#fff;border-radius:12px;padding:11px;display:flex;gap:9px;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+                  <span style="width:30px;height:30px;border-radius:50%;background:#f5dede;flex:none;"></span>
+                  <div style="flex:1;min-width:0;"><div style="font-size:12px;font-weight:700;">Dina Pratiwi</div><div style="font-size:10.5px;color:#71717a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Bisa early check-in?</div></div>
+                  <span style="width:16px;height:16px;border-radius:8px;background:#3b7a2e;color:#fff;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none;">3</span>
+                </div>
+              </div>
+              <div style="position:absolute;bottom:14px;left:14px;right:14px;background:#3b7a2e;border-radius:12px;padding:11px;display:flex;align-items:center;justify-content:center;gap:7px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+                <span style="color:#fff;font-size:12px;font-weight:700;">Percakapan Baru</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#3b7a2e;">Android &amp; iOS</span>
+        <h2 style="font-size:36px;line-height:1.14;letter-spacing:-0.025em;font-weight:800;margin:14px 0 0;text-wrap:balance;">Layani tamu dari genggaman, di mana pun</h2>
+        <p style="font-size:17px;line-height:1.6;color:#52525b;margin:16px 0 28px;">Aplikasi mobile native, tersinkronisasi penuh dengan versi web secara real-time. Inbox lengkap dalam genggaman, notifikasi push, dan keamanan 2FA yang sama.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="display:flex;gap:10px;align-items:flex-start;"><span style="font-size:18px;">🔄</span><div><div style="font-weight:700;font-size:14.5px;">Sinkron real-time</div><div style="font-size:13px;color:#71717a;line-height:1.45;">Sama di semua perangkat.</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><span style="font-size:18px;">🔔</span><div><div style="font-weight:700;font-size:14.5px;">Notifikasi push</div><div style="font-size:13px;color:#71717a;line-height:1.45;">Tak ada pesan terlewat.</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><span style="font-size:18px;">🏨</span><div><div style="font-weight:700;font-size:14.5px;">Multi-properti</div><div style="font-size:13px;color:#71717a;line-height:1.45;">Berpindah lokasi cepat.</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;"><span style="font-size:18px;">🔒</span><div><div style="font-weight:700;font-size:14.5px;">Keamanan sama</div><div style="font-size:13px;color:#71717a;line-height:1.45;">2FA &amp; penyamaran data.</div></div></div>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:30px;">
+          <span style="display:inline-flex;align-items:center;gap:9px;background:#18181b;color:#fff;padding:11px 18px;border-radius:11px;font-weight:600;font-size:14px;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M16.5 1.6c.1 1-.3 2-.9 2.7-.7.8-1.7 1.4-2.7 1.3-.1-1 .3-2 .9-2.7.7-.8 1.8-1.3 2.7-1.3ZM19 17.4c-.5 1.2-.8 1.7-1.4 2.8-.9 1.5-2.1 3.3-3.6 3.3-1.3 0-1.7-.9-3.5-.9s-2.2.8-3.5.9c-1.5.1-2.6-1.6-3.5-3.1C1.1 17-.3 11.6 1.7 8.6c.9-1.4 2.5-2.3 4-2.3 1.5 0 2.5.9 3.7.9 1.2 0 1.9-.9 3.7-.9 1.3 0 2.7.7 3.7 2-3.2 1.8-2.7 6.4.5 7.6Z"/></svg>
+            App Store
+          </span>
+          <span style="display:inline-flex;align-items:center;gap:9px;background:#18181b;color:#fff;padding:11px 18px;border-radius:11px;font-weight:600;font-size:14px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M3.6 2.3 13.2 12 3.6 21.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1ZM14.6 13.4l2.5 2.5-3.3 1.9-2.4-2.5 3.2-1.9ZM11.4 12l2.4-2.4 3.3 1.9-2.5 2.5-3.2-2ZM5.1 1.7l9.6 5.5-2.6 2.6L5.1 1.7Z"/></svg>
+            Google Play
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <sc-if value="{{ showTestimonials }}" hint-placeholder-val="{{ true }}">
+  <section id="testimoni" style="background:#fafafa;border-top:1px solid #f0f0f2;border-bottom:1px solid #f0f0f2;">
+    <div style="max-width:1120px;margin:0 auto;padding:84px 28px;">
+      <div style="text-align:center;max-width:600px;margin:0 auto 48px;">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:#3b7a2e;">Testimoni</span>
+        <h2 style="font-size:36px;line-height:1.15;letter-spacing:-0.025em;font-weight:800;margin:14px 0 0;">Dipercaya tim hospitality</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+        <div style="background:#fff;border:1px solid #ececee;border-radius:16px;padding:26px;">
+          <div style="color:#e6a23c;font-size:15px;letter-spacing:2px;margin-bottom:14px;">★★★★★</div>
+          <p style="font-size:15px;line-height:1.6;color:#3f3f46;margin:0 0 20px;">"Sejak pakai GuestChat, tidak ada lagi pesan tamu yang terlewat. Balasan jadi jauh lebih cepat dan tim front-desk kami tidak lagi kewalahan saat high season."</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="width:42px;height:42px;border-radius:50%;background:repeating-linear-gradient(135deg,#eef0ec,#eef0ec 6px,#e6e9e2 6px,#e6e9e2 12px);flex:none;"></span>
+            <div><div style="font-weight:700;font-size:14px;">Nama Narasumber</div><div style="font-size:12.5px;color:#71717a;">Jabatan · Nama Hotel</div></div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #ececee;border-radius:16px;padding:26px;">
+          <div style="color:#e6a23c;font-size:15px;letter-spacing:2px;margin-bottom:14px;">★★★★★</div>
+          <p style="font-size:15px;line-height:1.6;color:#3f3f46;margin:0 0 20px;">"AI Agent-nya membalas pertanyaan umum di luar jam kerja. Kami bisa fokus ke tamu yang butuh perhatian khusus, dan konversi booking dari chat meningkat."</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="width:42px;height:42px;border-radius:50%;background:repeating-linear-gradient(135deg,#eef0ec,#eef0ec 6px,#e6e9e2 6px,#e6e9e2 12px);flex:none;"></span>
+            <div><div style="font-weight:700;font-size:14px;">Nama Narasumber</div><div style="font-size:12.5px;color:#71717a;">Jabatan · Nama Hotel</div></div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #ececee;border-radius:16px;padding:26px;">
+          <div style="color:#e6a23c;font-size:15px;letter-spacing:2px;margin-bottom:14px;">★★★★★</div>
+          <p style="font-size:15px;line-height:1.6;color:#3f3f46;margin:0 0 20px;">"Dashboard reputasi membantu kami menangkap keluhan sebelum jadi ulasan buruk. Mengelola 4 properti dari satu akun juga sangat menghemat waktu."</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="width:42px;height:42px;border-radius:50%;background:repeating-linear-gradient(135deg,#eef0ec,#eef0ec 6px,#e6e9e2 6px,#e6e9e2 12px);flex:none;"></span>
+            <div><div style="font-weight:700;font-size:14px;">Nama Narasumber</div><div style="font-size:12.5px;color:#71717a;">Jabatan · Grup Hotel</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section id="demo" style="background:#fff;">
+    <div style="max-width:1120px;margin:0 auto;padding:88px 28px;">
+      <div style="background:linear-gradient(135deg,#3b7a2e 0%,#2c5c22 100%);border-radius:24px;padding:64px 40px;text-align:center;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-60px;right:-40px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.06);"></div>
+        <div style="position:absolute;bottom:-80px;left:-30px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,0.05);"></div>
+        <div style="position:relative;">
+          <h2 style="font-size:40px;line-height:1.1;letter-spacing:-0.025em;font-weight:800;color:#fff;margin:0;text-wrap:balance;">Siap membuat setiap tamu merasa didengar?</h2>
+          <p style="font-size:18px;color:#dcecd0;margin:18px auto 34px;max-width:520px;line-height:1.55;">Coba GuestChat gratis, atau ngobrol dulu dengan tim kami lewat WhatsApp. Tanpa kartu kredit.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+            <a href="#top" style="text-decoration:none;display:inline-flex;align-items:center;gap:9px;background:#fff;color:#2c5c22;font-weight:700;font-size:16px;padding:15px 28px;border-radius:12px;box-shadow:0 10px 24px rgba(0,0,0,0.18);">Coba Gratis</a>
+            <a href="{{ waHref }}" style="text-decoration:none;display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,0.12);border:1.5px solid rgba(255,255,255,0.35);color:#fff;font-weight:600;font-size:16px;padding:15px 26px;border-radius:12px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+              Hubungi via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="background:#0f1a0c;color:#c3ccbb;">
+    <div style="max-width:1120px;margin:0 auto;padding:64px 28px 32px;">
+      <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;">
+        <div>
+          <a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:16px;">
+            <span style="width:34px;height:34px;border-radius:10px;background:#3b7a2e;display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H9l-4 4V5.5Z" fill="#ffffff"/></svg>
+            </span>
+            <span style="font-weight:800;font-size:19px;color:#fff;">GuestChat</span>
+          </a>
+          <p style="font-size:14px;line-height:1.6;color:#8f9985;max-width:300px;margin:0 0 20px;">Satu inbox untuk semua percakapan tamu hotel Anda. WhatsApp, email, dan live chat — dibantu AI.</p>
+          <div style="display:flex;gap:10px;">
+            <a href="#" aria-label="Instagram" style="width:34px;height:34px;border-radius:9px;background:#22331a;display:flex;align-items:center;justify-content:center;text-decoration:none;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="#a3d977" stroke-width="1.8"/><circle cx="12" cy="12" r="3.6" stroke="#a3d977" stroke-width="1.8"/><circle cx="17" cy="7" r="1" fill="#a3d977"/></svg></a>
+            <a href="#" aria-label="LinkedIn" style="width:34px;height:34px;border-radius:9px;background:#22331a;display:flex;align-items:center;justify-content:center;text-decoration:none;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="3" stroke="#a3d977" stroke-width="1.8"/><path d="M8 10.5V16M8 7.6v.01M11.7 16v-3.2a1.8 1.8 0 0 1 3.6 0V16" stroke="#a3d977" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+            <a href="{{ waHref }}" aria-label="WhatsApp" style="width:34px;height:34px;border-radius:9px;background:#22331a;display:flex;align-items:center;justify-content:center;text-decoration:none;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 2.5a9.5 9.5 0 0 0-8.1 14.4L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5Z" stroke="#a3d977" stroke-width="1.8" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:14px;color:#fff;margin-bottom:16px;">Produk</div>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <a href="#fitur" style="text-decoration:none;color:#8f9985;font-size:14px;">Inbox Terpadu</a>
+            <a href="#ai" style="text-decoration:none;color:#8f9985;font-size:14px;">AI Agent</a>
+            <a href="#mobile" style="text-decoration:none;color:#8f9985;font-size:14px;">Aplikasi Mobile</a>
+            <a href="#fitur" style="text-decoration:none;color:#8f9985;font-size:14px;">Reputation</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:14px;color:#fff;margin-bottom:16px;">Perusahaan</div>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <a href="#" style="text-decoration:none;color:#8f9985;font-size:14px;">Tentang Kami</a>
+            <a href="#" style="text-decoration:none;color:#8f9985;font-size:14px;">Blog</a>
+            <a href="#" style="text-decoration:none;color:#8f9985;font-size:14px;">Karier</a>
+            <a href="#" style="text-decoration:none;color:#8f9985;font-size:14px;">Kebijakan Privasi</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:14px;color:#fff;margin-bottom:16px;">Kontak</div>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <a href="mailto:halo@guestchat.id" style="text-decoration:none;color:#8f9985;font-size:14px;">halo@guestchat.id</a>
+            <a href="{{ waHref }}" style="text-decoration:none;color:#8f9985;font-size:14px;">+62 812-0000-0000</a>
+            <span style="color:#8f9985;font-size:14px;line-height:1.5;">Jakarta, Indonesia</span>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid #22331a;margin-top:48px;padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+        <span style="font-size:13px;color:#6f7a65;">© {{ year }} GuestChat. Seluruh hak cipta dilindungi.</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#6f7a65;">Web · Android · iOS</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200},&quot;whatsappNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;6281200000000&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Kontak&quot;},&quot;showLogoBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Bagian&quot;},&quot;showTestimonials&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Bagian&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const raw = (this.props.whatsappNumber ?? '6281200000000').replace(/[^0-9]/g, '');
+    return {
+      showLogoBar: this.props.showLogoBar ?? true,
+      showTestimonials: this.props.showTestimonials ?? true,
+      waHref: 'https://wa.me/' + raw,
+      year: new Date().getFullYear(),
+    };
+  }
+}
+</script>
+</body>
+</html>

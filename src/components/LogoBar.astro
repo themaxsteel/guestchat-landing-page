@@ -1,0 +1,29 @@
+---
+import { channels, otas } from '../data/logos';
+
+// One combined strip — channels + OTAs, no category split.
+const logos = [...channels, ...otas];
+---
+
+<section class="border-b border-[#f0f0f2] bg-white">
+  <div class="mx-auto max-w-[1120px] px-5 py-[38px] text-center sm:px-7">
+    <p class="mb-7 font-mono text-xs uppercase tracking-[0.06em] text-zinc-400">
+      Terhubung dengan kanal komunikasi &amp; OTA favorit tamu Anda
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-x-9 gap-y-6 sm:gap-x-12">
+      {
+        logos.map((l) => (
+          <img
+            src={l.src}
+            alt={`Logo ${l.name}`}
+            title={l.name}
+            width="36"
+            height="36"
+            loading="lazy"
+            class="h-8 w-8 rounded-lg object-contain opacity-60 grayscale transition duration-200 ease-out hover:scale-110 hover:opacity-100 hover:grayscale-0 sm:h-9 sm:w-9"
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

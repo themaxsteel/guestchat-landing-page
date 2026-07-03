@@ -1,0 +1,148 @@
+---
+import { waHref } from '../data/site';
+---
+
+<section id="top" class="relative overflow-hidden border-b border-[#f0f0f2] bg-mist">
+  <!-- product screenshot: floats gently, revealed clearly on the right -->
+  <div aria-hidden="true" class="hero-photo-wrap absolute inset-0 motion-safe:animate-floaty">
+    <div
+      class="hero-photo absolute bg-cover bg-[right_center] bg-no-repeat"
+      style="background-image:url('/assets/hero-product.webp');"
+    >
+    </div>
+  </div>
+
+  <!-- soft brand glow behind the product for a premium, minimal feel -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-24 -top-24 hidden h-[420px] w-[420px] rounded-full opacity-60 blur-3xl md:block"
+    style="background:radial-gradient(circle,rgba(163,217,119,0.35) 0%,rgba(163,217,119,0) 70%);"
+  >
+  </div>
+
+  <!-- left-to-right fade so copy stays legible (responsive scrim) -->
+  <div aria-hidden="true" class="hero-scrim absolute inset-0"></div>
+
+  <div class="relative z-[2] mx-auto max-w-[1200px] px-5 py-20 sm:px-7 md:py-24 lg:py-[112px]">
+    <div class="max-w-[560px]">
+      <span
+        class="hero-in inline-flex items-center gap-2 rounded-full border border-brand-200/60 bg-brand-100 px-[13px] py-[7px] font-mono text-xs font-medium uppercase tracking-[0.04em] text-brand shadow-[0_1px_2px_rgba(59,122,46,0.06)]"
+        style="animation-delay:0ms"
+      >
+        <span class="relative flex h-1.5 w-1.5">
+          <span class="absolute inline-flex h-full w-full rounded-full bg-brand opacity-70 motion-safe:animate-ping"></span>
+          <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand"></span>
+        </span>
+        Untuk Hotel &amp; Penginapan Independen
+      </span>
+
+      <h1
+        class="hero-in mt-5 text-[30px] font-extrabold leading-[1.08] tracking-[-0.03em] text-balance text-zinc-900 sm:text-[36px] lg:text-[42px]"
+        style="animation-delay:80ms"
+      >
+        Balas <span class="text-brand">setiap tamu</span> lebih cepat, tanpa menambah staf
+      </h1>
+
+      <p
+        class="hero-in mt-[18px] max-w-[500px] text-[15px] leading-[1.6] text-zinc-600 sm:text-[16px]"
+        style="animation-delay:160ms"
+      >
+        Gabungkan WhatsApp, email, dan live chat dalam satu layar. AI Agent yang paham kamar, tarif, dan kebijakan hotel
+        Anda membalas otomatis — Anda tinggal fokus melayani tamu.
+      </p>
+
+      <div class="hero-in mt-[34px] flex flex-wrap gap-3.5" style="animation-delay:240ms">
+        <a
+          href="#demo"
+          class="group inline-flex items-center gap-[9px] rounded-xl bg-brand px-[26px] py-[15px] text-[16px] font-bold text-white no-underline shadow-[0_8px_22px_rgba(59,122,46,0.28)] transition-all hover:-translate-y-0.5 hover:bg-brand-dark hover:shadow-[0_12px_28px_rgba(59,122,46,0.34)]"
+        >
+          Coba Gratis
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" class="transition-transform group-hover:translate-x-0.5"
+            ><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+            ></path></svg
+          >
+        </a>
+        <a
+          href={waHref}
+          class="inline-flex items-center gap-[9px] rounded-xl border-[1.5px] border-[#d9dcdd] bg-white/80 px-6 py-[15px] text-[16px] font-semibold text-zinc-900 no-underline backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-brand hover:text-brand"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+            ><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Z" stroke="#25aa5a" stroke-width="2" stroke-linejoin="round"
+            ></path><path
+              d="M8.5 7.8c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.5s.7 1.7.7 1.8-.1.3-.2.5l-.4.4c-.1.1-.3.3-.1.6s.6 1 1.3 1.6c.9.8 1.6 1 1.9 1.1s.4.1.6-.1.6-.7.8-1 .4-.2.6-.1l1.7.8c.2.1.4.2.4.3.1.3.1.9-.2 1.5s-1.3 1-1.8 1.1c-.5 0-1 .2-3.2-.7s-3.6-3.2-3.7-3.3-1-1.3-1-2.5.6-1.8.9-2Z"
+              fill="#25aa5a"></path></svg
+          >
+          Hubungi via WhatsApp
+        </a>
+      </div>
+
+      <div class="hero-in mt-[30px] flex flex-wrap items-center gap-x-[22px] gap-y-3" style="animation-delay:320ms">
+        <div class="flex items-center gap-2 text-sm font-medium text-zinc-600">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+            ><path d="M20 6 9 17l-5-5" stroke="#3b7a2e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg
+          >
+          Tanpa kartu kredit
+        </div>
+        <div class="flex items-center gap-2 text-sm font-medium text-zinc-600">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+            ><path d="M20 6 9 17l-5-5" stroke="#3b7a2e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg
+          >
+          Langsung coba dengan akun demo
+        </div>
+        <div class="flex items-center gap-2 text-sm font-medium text-zinc-600">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+            ><path d="M20 6 9 17l-5-5" stroke="#3b7a2e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg
+          >
+          Web · Android · iOS
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Extend the photo layer past the section so the floaty motion never reveals an edge */
+  .hero-photo {
+    inset: -20px;
+  }
+
+  /* Staggered entrance for the copy column */
+  .hero-in {
+    opacity: 0;
+  }
+  :global(html) .hero-in {
+    animation: fadeUp 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  }
+
+  /* Mobile: keep the collage as a faint, unobtrusive backdrop */
+  .hero-scrim {
+    background: linear-gradient(
+      90deg,
+      #eef4e6 0%,
+      #eef4e6 40%,
+      rgba(238, 244, 230, 0.82) 72%,
+      rgba(238, 244, 230, 0.6) 100%
+    );
+  }
+
+  /* Desktop: pull the mist back so the product screenshots read clearly on the right */
+  @media (min-width: 768px) {
+    .hero-scrim {
+      background: linear-gradient(
+        90deg,
+        #eef4e6 0%,
+        #eef4e6 26%,
+        rgba(238, 244, 230, 0.92) 40%,
+        rgba(238, 244, 230, 0.4) 54%,
+        rgba(238, 244, 230, 0) 68%
+      );
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-in {
+      opacity: 1;
+      animation-delay: 0ms !important;
+    }
+  }
+</style>
