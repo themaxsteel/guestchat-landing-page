@@ -15,14 +15,44 @@ const points = [
 ];
 ---
 
-<section id="ai" class="bg-forest-950 text-white">
+<section id="ai" class="relative isolate overflow-hidden bg-white">
+  <!-- ============ Perspective-grid / light-lines background (light) ============ -->
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+    <!-- soft brand glow near the horizon -->
+    <div
+      class="absolute inset-x-0 top-[40%] h-[60%] opacity-80"
+      style="background:radial-gradient(120% 90% at 50% 100%, rgba(163,217,119,0.22) 0%, rgba(59,122,46,0.08) 36%, transparent 70%);"
+    >
+    </div>
+    <!-- receding perspective grid -->
+    <div class="ai-grid absolute inset-x-0 bottom-0 top-[44%]"></div>
+    <!-- faint upper field of light-lines fading up -->
+    <div
+      class="absolute inset-x-0 top-0 h-[50%] opacity-60"
+      style="
+        background-image:linear-gradient(to right, rgba(59,122,46,0.06) 1px, transparent 1px);
+        background-size:56px 100%;
+        -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 78%);
+        mask-image:linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 78%);
+      "
+    >
+    </div>
+    <!-- edges settle into white -->
+    <div
+      class="absolute inset-0"
+      style="background:radial-gradient(130% 120% at 50% 46%, transparent 55%, rgba(255,255,255,0.92) 100%);"
+    >
+    </div>
+  </div>
+
   <div class="mx-auto grid max-w-[1120px] grid-cols-1 items-center gap-14 px-5 py-[88px] sm:px-7 lg:grid-cols-2 lg:gap-[58px]">
+    <!-- ============ LEFT COLUMN ============ -->
     <div>
-      <span class="font-mono text-xs font-medium uppercase tracking-[0.05em] text-brand-lime">AI Agent</span>
-      <h2 class="mt-3.5 text-[30px] font-extrabold leading-[1.12] tracking-[-0.025em] text-balance text-white sm:text-[38px]">
+      <span class="font-mono text-xs font-medium uppercase tracking-[0.05em] text-brand">AI Agent</span>
+      <h2 class="mt-3.5 text-[30px] font-extrabold leading-[1.12] tracking-[-0.025em] text-balance text-zinc-900 sm:text-[38px]">
         AI yang tahu jawabannya — karena ia paham hotel Anda
       </h2>
-      <p class="mb-[30px] mt-[18px] text-[17px] leading-[1.65] text-[#c3ccbb]">
+      <p class="mb-[30px] mt-[18px] text-[17px] leading-[1.65] text-zinc-600">
         Bukan chatbot generik. AI Agent belajar dari data hotel Anda — ketersediaan kamar, tarif, kebijakan, hingga
         layanan dan destinasi sekitar — lalu menjawab tamu dengan akurat. Pilih mode draf untuk staf, atau balas otomatis
         penuh di WhatsApp.
@@ -31,14 +61,14 @@ const points = [
         {
           points.map((p) => (
             <div class="flex items-start gap-[13px]">
-              <span class="flex h-[26px] w-[26px] flex-none items-center justify-center rounded-lg bg-forest-700">
+              <span class="flex h-[26px] w-[26px] flex-none items-center justify-center rounded-lg bg-brand-50">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                  <path d="M20 6 9 17l-5-5" stroke="#a3d977" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M20 6 9 17l-5-5" stroke="var(--color-brand)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </span>
               <div>
-                <div class="text-[15.5px] font-bold text-white">{p.title}</div>
-                <div class="mt-0.5 text-sm leading-[1.5] text-[#a7b09d]">{p.body}</div>
+                <div class="text-[15.5px] font-bold text-zinc-900">{p.title}</div>
+                <div class="mt-0.5 text-sm leading-[1.5] text-zinc-500">{p.body}</div>
               </div>
             </div>
           ))
@@ -46,34 +76,428 @@ const points = [
       </div>
     </div>
 
-    <!-- chat card -->
-    <div class="animate-floaty">
-      <div class="rounded-2xl border border-forest-600 bg-forest-900 p-5 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.7)]">
-        <div class="mb-4 flex items-center gap-2">
-          <span class="flex h-[30px] w-[30px] items-center justify-center rounded-lg bg-brand-lime">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-              ><rect x="5" y="8" width="14" height="10" rx="3" stroke="#16250f" stroke-width="2"></rect><path
-                d="M12 4v4M9 13h.01M15 13h.01"
-                stroke="#16250f"
-                stroke-width="2"
-                stroke-linecap="round"></path></svg
-            >
+    <!-- ============ RIGHT: desktop app window with looping chat ============ -->
+    <div class="motion-safe:animate-floaty">
+      <div
+        class="ai-window relative rounded-[16px] border border-zinc-200 bg-white shadow-[0_30px_60px_-30px_rgba(15,26,12,0.30),0_6px_16px_-10px_rgba(15,26,12,0.15)]"
+      >
+        <!-- title bar -->
+        <div class="flex items-center gap-3 border-b border-zinc-200 px-4 py-3">
+          <img src="/assets/logos/guestchat.webp" alt="GuestChat" width="20" height="20" class="h-5 w-5 flex-none rounded-md" />
+          <span class="truncate font-mono text-[12px] font-medium tracking-tight text-zinc-400">
+            GuestChat AI Agent Reply
           </span>
-          <span class="text-sm font-bold text-white">Aria · AI Agent</span>
-          <span class="ml-auto rounded-md bg-forest-700 px-[9px] py-1 text-[11px] font-semibold text-brand-lime">Auto-Reply ON</span>
+          <span class="ai-livedot relative ml-auto flex h-2 w-2">
+            <span class="ai-livedot-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-60"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-brand"></span>
+          </span>
         </div>
-        <div class="rounded-[11px] border border-[#24361b] bg-forest-950 p-3.5 text-[13px] leading-[1.6] text-[#dfe7d6]">
-          <span class="font-mono text-[11px] text-[#8fb673]">membalas tamu…</span><br />
-          Tentu, Bu Sarah! Deluxe Suite kami tersedia 12–15 Juli. Sudah termasuk sarapan untuk 2 orang dan akses infinity pool.
-          Apakah ingin saya siapkan penawarannya sekarang?<span
-            class="ml-0.5 inline-block h-[15px] w-[7px] -translate-y-px bg-brand-lime align-text-bottom"></span>
+
+        <!-- conversation topic chip -->
+        <div class="flex items-center gap-2 px-4 pt-3.5" aria-hidden="true">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+            <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="var(--color-brand)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span id="ai-tag" class="font-mono text-[11px] uppercase tracking-[0.06em] text-brand">Ketersediaan &amp; tarif</span>
         </div>
-        <div class="mt-3 flex flex-wrap gap-2">
-          <span class="rounded-md border border-forest-600 bg-forest-800 px-2.5 py-[5px] text-[11px] text-[#c3ccbb]">Nada: Ramah</span>
-          <span class="rounded-md border border-forest-600 bg-forest-800 px-2.5 py-[5px] text-[11px] text-[#c3ccbb]">Bahasa Indonesia</span>
-          <span class="rounded-md border border-forest-600 bg-forest-800 px-2.5 py-[5px] text-[11px] text-[#c3ccbb]">Debounce 3s</span>
+
+        <!-- chat body: fixed-height, bottom-anchored thread -->
+        <div class="px-3 pb-3.5 pt-2.5 sm:px-4">
+          <div
+            id="ai-thread"
+            aria-hidden="true"
+            class="flex h-[392px] flex-col justify-end gap-2.5 overflow-hidden rounded-xl bg-zinc-50 p-3.5 ring-1 ring-inset ring-zinc-200 sm:p-4"
+          >
+            <!-- messages injected by JS; SSR fallback below for no-JS -->
+            <noscript>
+              <div class="msg from-guest">
+                <div class="bubble">
+                  Halo, masih ada kamar kosong tanggal 12-15 Juli?
+                  <span class="stamp">09:41</span>
+                </div>
+              </div>
+              <div class="msg from-ai">
+                <div class="bubble">
+                  Halo! Untuk 12-15 Juli, Deluxe Suite kami masih tersedia. Tarifnya Rp1.250.000 per malam, termasuk
+                  sarapan untuk 2 orang.
+                  <span class="stamp">09:41</span>
+                </div>
+              </div>
+            </noscript>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style is:global>
+  /* Global (not scoped): the chat bubbles are created at runtime by the script,
+     so Astro's scoped attribute never reaches them. All selectors here are
+     anchored to #ai / #ai-thread or prefixed with .ai- to avoid leaking. */
+  /* ---- Perspective grid ---- */
+  .ai-grid {
+    background-image:
+      linear-gradient(to right, rgba(59, 122, 46, 0.09) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(59, 122, 46, 0.09) 1px, transparent 1px);
+    background-size: 46px 46px;
+    background-position: center 0;
+    transform: perspective(420px) rotateX(62deg) scale(1.9);
+    transform-origin: center bottom;
+    -webkit-mask-image: radial-gradient(120% 82% at 50% 100%, #000 22%, transparent 74%);
+    mask-image: radial-gradient(120% 82% at 50% 100%, #000 22%, transparent 74%);
+    opacity: 0.7;
+    animation: aiGridDrift 7s linear infinite;
+  }
+  @keyframes aiGridDrift {
+    to {
+      background-position: center 46px;
+    }
+  }
+
+  /* ---- Live status dot ---- */
+  .ai-livedot-ping {
+    animation: aiPing 1.9s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  @keyframes aiPing {
+    0% {
+      transform: scale(0.9);
+      opacity: 0.6;
+    }
+    70%,
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+
+  /* ---- Message bubbles ---- */
+  #ai-thread .msg {
+    display: flex;
+    animation: aiMsgIn 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  #ai-thread .msg.from-guest {
+    justify-content: flex-end;
+  }
+  #ai-thread .msg.from-ai {
+    justify-content: flex-start;
+  }
+  @keyframes aiMsgIn {
+    from {
+      opacity: 0;
+      transform: translateY(9px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  #ai-thread .bubble {
+    max-width: 82%;
+    padding: 0.625rem 0.875rem;
+    font-size: 13px;
+    line-height: 1.55;
+    border-radius: 1rem;
+  }
+  #ai-thread .from-guest .bubble {
+    background: var(--color-brand);
+    color: #fff;
+    border-bottom-right-radius: 0.375rem;
+  }
+  #ai-thread .from-ai .bubble {
+    background: #fff;
+    color: var(--color-forest-900);
+    border: 1px solid rgba(20, 37, 15, 0.08);
+    border-bottom-left-radius: 0.375rem;
+    box-shadow: 0 1px 2px rgba(15, 26, 12, 0.05);
+  }
+  #ai-thread .stamp {
+    margin-top: 0.25rem;
+    font-size: 10px;
+  }
+  #ai-thread .from-ai .stamp {
+    display: block;
+    text-align: right;
+    color: rgba(24, 32, 20, 0.4);
+  }
+  /* guest stamp: time + double read-tick, right aligned */
+  #ai-thread .from-guest .stamp {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 3px;
+    color: rgba(255, 255, 255, 0.75);
+  }
+  #ai-thread .tick {
+    flex: none;
+  }
+
+  /* ---- Typing indicator ---- */
+  #ai-thread .typing {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.75rem 0.9rem;
+  }
+  #ai-thread .typing i {
+    display: block;
+    height: 6px;
+    width: 6px;
+    border-radius: 999px;
+    background: rgba(24, 32, 20, 0.32);
+    opacity: 0.7;
+    animation: aiBounce 1.2s ease-in-out infinite;
+  }
+  #ai-thread .typing i:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  #ai-thread .typing i:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  @keyframes aiBounce {
+    0%,
+    60%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.4;
+    }
+    30% {
+      transform: translateY(-4px);
+      opacity: 0.85;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ai-grid {
+      animation: none;
+    }
+    .ai-livedot-ping {
+      animation: none;
+    }
+    #ai-thread .msg {
+      animation: none;
+    }
+    #ai-thread .typing i {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  const conversations = [
+    {
+      tag: 'Ketersediaan & tarif',
+      messages: [
+        { role: 'guest', text: 'Halo, masih ada kamar kosong tanggal 12-15 Juli?', time: '09:41' },
+        { role: 'ai', text: 'Halo! Untuk 12-15 Juli, Deluxe Suite kami masih tersedia. Tarifnya Rp1.250.000 per malam, termasuk sarapan untuk 2 orang.', time: '09:41' },
+        { role: 'guest', text: 'Ada yang menghadap kolam renang?', time: '09:42' },
+        { role: 'ai', text: 'Ada, Bu. Deluxe Suite lantai 3 menghadap infinity pool. Mau saya siapkan penawarannya?', time: '09:42' },
+      ],
+    },
+    {
+      tag: 'Early check-in',
+      messages: [
+        { role: 'guest', text: 'Kami tiba jam 10 pagi, bisa early check-in?', time: '08:15' },
+        { role: 'ai', text: 'Bisa kami usahakan, Pak. Early check-in mulai pukul 11.00 tergantung ketersediaan kamar, tanpa biaya tambahan.', time: '08:15' },
+        { role: 'guest', text: 'Kalau kamarnya belum siap?', time: '08:16' },
+        { role: 'ai', text: 'Tas Anda bisa kami titipkan gratis dan Anda dipersilakan menunggu di lounge sambil menikmati welcome drink.', time: '08:16' },
+      ],
+    },
+    {
+      tag: 'Antar-jemput bandara',
+      messages: [
+        { role: 'guest', text: 'Apakah hotel menyediakan antar-jemput bandara?', time: '19:30' },
+        { role: 'ai', text: 'Tentu. Kami sediakan antar-jemput bandara dengan biaya Rp150.000 sekali jalan, mobil ber-AC.', time: '19:30' },
+        { role: 'guest', text: 'Untuk 3 orang dengan koper besar muat?', time: '19:31' },
+        { role: 'ai', text: 'Muat, Pak. Kami siapkan kendaraan yang sesuai. Boleh saya catat jadwal kedatangan penerbangannya?', time: '19:31' },
+      ],
+    },
+  ];
+
+  const section = document.getElementById('ai');
+  const thread = document.getElementById('ai-thread');
+  const tagEl = document.getElementById('ai-tag');
+
+  if (section && thread && tagEl) {
+    const SVG_NS = 'http://www.w3.org/2000/svg';
+
+    // Double read-tick, built via DOM (no innerHTML) for the guest bubbles.
+    function readTick() {
+      const svg = document.createElementNS(SVG_NS, 'svg');
+      svg.setAttribute('class', 'tick');
+      svg.setAttribute('viewBox', '0 0 22 12');
+      svg.setAttribute('width', '15');
+      svg.setAttribute('height', '9');
+      svg.setAttribute('fill', 'none');
+      [
+        'M1 6.5 4.5 10 11 3',
+        'M7 6.5 10.5 10 17 3',
+      ].forEach((d) => {
+        const p = document.createElementNS(SVG_NS, 'path');
+        p.setAttribute('d', d);
+        p.setAttribute('stroke', 'rgba(255,255,255,0.85)');
+        p.setAttribute('stroke-width', '1.6');
+        p.setAttribute('stroke-linecap', 'round');
+        p.setAttribute('stroke-linejoin', 'round');
+        svg.appendChild(p);
+      });
+      return svg;
+    }
+
+    function bubbleRow(m) {
+      const row = document.createElement('div');
+      row.className = 'msg ' + (m.role === 'guest' ? 'from-guest' : 'from-ai');
+      const b = document.createElement('div');
+      b.className = 'bubble';
+      b.textContent = m.text;
+      const stamp = document.createElement('span');
+      stamp.className = 'stamp';
+      const time = document.createElement('span');
+      time.textContent = m.time;
+      stamp.appendChild(time);
+      if (m.role === 'guest') stamp.appendChild(readTick());
+      b.appendChild(stamp);
+      row.appendChild(b);
+      return row;
+    }
+
+    function typingRow() {
+      const row = document.createElement('div');
+      row.className = 'msg from-ai';
+      const b = document.createElement('div');
+      b.className = 'bubble typing';
+      b.appendChild(document.createElement('i'));
+      b.appendChild(document.createElement('i'));
+      b.appendChild(document.createElement('i'));
+      row.appendChild(b);
+      return row;
+    }
+
+    function setTag(t) {
+      tagEl.textContent = t;
+    }
+
+    function renderStatic() {
+      const c = conversations[0];
+      setTag(c.tag);
+      thread.innerHTML = '';
+      c.messages.forEach((m) => thread.appendChild(bubbleRow(m)));
+    }
+
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    // --- animated looping playback ---
+    let timers = [];
+    let running = false;
+    let convoIdx = 0;
+    let inView = false;
+    let gen = 0; // generation token: any change invalidates in-flight async loops
+
+    const wait = (ms) =>
+      new Promise((resolve) => {
+        const entry = { id: 0, resolve };
+        entry.id = window.setTimeout(() => {
+          timers = timers.filter((t) => t !== entry);
+          resolve();
+        }, ms);
+        timers.push(entry);
+      });
+
+    // Also resolve pending waits so any in-flight loop resumes and bails at its
+    // gen check — otherwise the awaiting frame (and its closures/DOM refs) leaks.
+    function clearTimers() {
+      timers.forEach((t) => {
+        clearTimeout(t.id);
+        t.resolve();
+      });
+      timers = [];
+    }
+
+    async function playConvo(convo, myGen) {
+      setTag(convo.tag);
+      thread.innerHTML = '';
+      for (const m of convo.messages) {
+        if (myGen !== gen) return;
+        if (m.role === 'ai') {
+          const t = typingRow();
+          thread.appendChild(t);
+          await wait(1100);
+          if (myGen !== gen) return;
+          t.remove();
+        }
+        if (myGen !== gen) return;
+        thread.appendChild(bubbleRow(m));
+        await wait(m.role === 'guest' ? 1750 : 1950);
+      }
+    }
+
+    async function loop(myGen) {
+      while (myGen === gen) {
+        await playConvo(conversations[convoIdx], myGen);
+        if (myGen !== gen) return;
+        await wait(2400); // linger on the completed conversation
+        if (myGen !== gen) return;
+        convoIdx = (convoIdx + 1) % conversations.length;
+      }
+    }
+
+    function start() {
+      if (running || mq.matches) return;
+      running = true;
+      gen++;
+      // Resume rotation where it left off (convoIdx persists); a fresh page
+      // load starts at conversation 1 via the initializer above.
+      thread.innerHTML = '';
+      void loop(gen);
+    }
+
+    function stop() {
+      if (!running) return;
+      running = false;
+      gen++; // invalidate any in-flight loop
+      clearTimers();
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          inView = e.isIntersecting;
+          if (inView && !document.hidden) start();
+          else stop();
+        });
+      },
+      { threshold: 0.35 }
+    );
+
+    // reduced-motion: render first convo statically, no loop, no observer
+    if (mq.matches) {
+      renderStatic();
+    } else {
+      io.observe(section);
+    }
+
+    // pause when tab hidden; resume if still in view when it returns
+    document.addEventListener('visibilitychange', () => {
+      if (mq.matches) return;
+      if (document.hidden) stop();
+      else if (inView) start();
+    });
+
+    // handle the user toggling reduced-motion mid-session
+    const onReduceChange = () => {
+      if (mq.matches) {
+        stop();
+        io.disconnect();
+        renderStatic();
+      } else {
+        // reduce-motion turned back off: re-arm the observer so the loop can
+        // resume when the section is in view.
+        thread.innerHTML = '';
+        io.observe(section);
+      }
+    };
+    if (mq.addEventListener) mq.addEventListener('change', onReduceChange);
+    else if (mq.addListener) mq.addListener(onReduceChange);
+  }
+</script>

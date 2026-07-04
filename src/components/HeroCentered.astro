@@ -11,6 +11,22 @@ import { waHref } from '../data/site';
   >
   </div>
 
+  <!-- aurora mesh: soft brand-green gradient blobs that blend behind the copy -->
+  <div aria-hidden="true" class="hero-aurora pointer-events-none absolute inset-0"></div>
+
+  <!-- floating channel logos, kept subtle and out of the reading column -->
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+    <!-- logos: original colors, low opacity, drifting independently -->
+    <img src="/assets/logos/booking.webp" alt="" class="hero-logo hero-float absolute left-[7%] top-[30%] h-12 w-12" style="--dur:8s;--delay:-0.5s" />
+    <img src="/assets/logos/airbnb.webp" alt="" class="hero-logo hero-float absolute left-[13%] top-[60%] h-10 w-10" style="--dur:9s;--delay:-2.5s" />
+    <img src="/assets/logos/whatsapp.webp" alt="" class="hero-logo hero-float absolute right-[8%] top-[34%] h-12 w-12" style="--dur:7.5s;--delay:-1.5s" />
+    <img src="/assets/logos/traveloka.webp" alt="" class="hero-logo hero-float absolute right-[15%] top-[62%] h-10 w-10" style="--dur:8.5s;--delay:-3.5s" />
+    <img src="/assets/logos/gmail.webp" alt="" class="hero-logo hero-float absolute left-[22%] top-[14%] hidden h-9 w-9 md:block" style="--dur:9.5s;--delay:-1s" />
+    <img src="/assets/logos/expedia.webp" alt="" class="hero-logo hero-float absolute left-[28%] bottom-[14%] hidden h-9 w-9 md:block" style="--dur:8s;--delay:-4s" />
+    <img src="/assets/logos/instagram.webp" alt="" class="hero-logo hero-float absolute right-[24%] bottom-[16%] hidden h-10 w-10 md:block" style="--dur:9s;--delay:-2s" />
+    <img src="/assets/logos/tiket.webp" alt="" class="hero-logo hero-float absolute right-[26%] top-[16%] hidden h-9 w-9 md:block" style="--dur:8.5s;--delay:-0.8s" />
+  </div>
+
   <div class="relative z-[2] mx-auto flex max-w-[1120px] flex-col items-center px-5 py-24 text-center sm:px-7 md:py-32 lg:py-[140px]">
     <h1
       class="hero-in max-w-[760px] text-[32px] font-extrabold leading-[1.08] tracking-[-0.03em] text-balance text-zinc-900 sm:text-[42px] lg:text-[52px]"
@@ -74,6 +90,36 @@ import { waHref } from '../data/site';
 </section>
 
 <style>
+  /* Aurora mesh: soft blended brand-green blobs, no hard edges */
+  .hero-aurora {
+    background-image:
+      radial-gradient(38% 42% at 16% 22%, rgba(163, 217, 119, 0.42), transparent 70%),
+      radial-gradient(34% 38% at 84% 16%, rgba(120, 190, 90, 0.32), transparent 70%),
+      radial-gradient(46% 48% at 82% 82%, rgba(163, 217, 119, 0.36), transparent 72%),
+      radial-gradient(40% 44% at 12% 86%, rgba(96, 168, 74, 0.28), transparent 72%);
+    filter: blur(18px);
+  }
+
+  /* Floating background decor: logos + bubbles */
+  .hero-logo {
+    opacity: 0.18;
+    object-fit: contain;
+    border-radius: 12px;
+    filter: saturate(0.95);
+  }
+  .hero-float {
+    animation: heroFloat var(--dur, 8s) ease-in-out var(--delay, 0s) infinite;
+  }
+  @keyframes heroFloat {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+  }
+
   /* Staggered entrance for the copy */
   .hero-in {
     opacity: 0;

@@ -1,0 +1,178 @@
+---
+// Problem section as a vertical, alternating (zigzag) timeline: one guest message
+// at Villa Senja carried top-to-bottom from the tense moment, to GuestChat catching
+// it, to the outcome. Each step pairs narrative text with a media slot on the
+// opposite side of the centre spine — ready to hold an illustration or UI later.
+const steps = [
+  {
+    no: '01',
+    time: 'Pukul 23:47',
+    title: 'Pesan masuk tengah malam',
+    body: 'Andra bertanya soal kamar menghadap sawah untuk long weekend — jauh setelah tim pulang. Di dunia lama, pesan ini menunggu sampai pagi. Saat resepsionis buka HP, ia sudah booking di tempat lain.',
+  },
+  {
+    no: '02',
+    time: 'Sesaat kemudian',
+    title: 'Ditangkap GuestChat',
+    body: 'AI Agent langsung membalas dari data hotel Anda — ketersediaan, tarif, dan kebijakan — bukan mengarang. Kalau AI ragu, percakapan otomatis diteruskan ke staf.',
+  },
+  {
+    no: '03',
+    time: 'Pagi harinya',
+    title: 'Reservasi terkonfirmasi',
+    body: 'Andra memesan Kamar Sawah View untuk 18–20 Juli. Paginya, tim menemukan reservasi sudah masuk — dan tamu yang merasa diprioritaskan sejak menit pertama.',
+  },
+];
+---
+
+<section id="problem" class="reveal border-b border-[#f0f0f2] bg-zinc-50">
+  <div class="mx-auto max-w-[1120px] px-5 py-20 sm:px-7">
+    <!-- header -->
+    <div class="mx-auto mb-8 max-w-[640px] text-center">
+      <span class="font-mono text-xs font-medium uppercase tracking-[0.05em] text-brand">Masalahnya</span>
+      <h2 class="mt-3.5 text-[28px] font-extrabold leading-[1.15] tracking-[-0.025em] text-balance sm:text-[36px]">
+        Pesan tamu tak kenal jam kerja. Tim Anda kenal.
+      </h2>
+      <p class="mx-auto mt-3.5 max-w-[560px] text-[17px] leading-[1.6] text-zinc-600">
+        Villa Senja punya 14 kamar dan tim bertiga. Ikuti satu pesan yang masuk jauh setelah mereka pulang — dan apa
+        yang terjadi berikutnya.
+      </p>
+    </div>
+
+    <!-- scene chip -->
+    <div class="mb-12 flex justify-center">
+      <span class="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3.5 py-1.5 text-[12.5px] font-semibold text-zinc-600">
+        <span class="h-1.5 w-1.5 rounded-full bg-brand"></span>
+        Villa Senja · 14 kamar · Ubud
+      </span>
+    </div>
+
+    <!-- ============ vertical zigzag timeline ============ -->
+    <div class="relative space-y-14 lg:space-y-20">
+      <!-- centre spine (left rail on mobile) -->
+      <span
+        aria-hidden="true"
+        class="absolute bottom-0 left-[15px] top-0 w-px -translate-x-1/2 bg-zinc-200 lg:left-1/2"
+      ></span>
+      <span
+        aria-hidden="true"
+        class="spine-fill absolute bottom-0 left-[15px] top-0 w-px bg-brand-lime shadow-[0_0_10px_1px_rgba(163,217,119,0.7)] lg:left-1/2"
+      ></span>
+
+      {
+        steps.map((s, i) => {
+          const textFirst = i % 2 === 0; // even steps: text left, media right
+          return (
+            <div class="act relative grid gap-6 pl-12 lg:grid-cols-2 lg:items-center lg:gap-16 lg:pl-0" style={`--d:${0.1 + i * 0.2}s`}>
+              {/* node on the spine */}
+              <span class="node absolute left-[15px] top-0 flex h-9 w-9 -translate-x-1/2 items-center justify-center rounded-full border border-zinc-200 bg-white font-mono text-[13px] font-bold text-brand shadow-sm lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2">
+                {s.no}
+              </span>
+
+              {/* narrative text */}
+              <div class={textFirst ? 'lg:order-1 lg:pr-6 lg:text-right' : 'lg:order-2 lg:pl-6 lg:text-left'}>
+                <span class="font-mono text-[11px] uppercase tracking-[0.06em] text-zinc-400">{s.time}</span>
+                <h3 class="mt-2 text-[19px] font-extrabold leading-[1.2] tracking-[-0.02em] text-zinc-900 sm:text-[21px]">
+                  {s.title}
+                </h3>
+                <p class="mt-2.5 text-[14.5px] leading-[1.6] text-zinc-600">{s.body}</p>
+              </div>
+
+              {/* media slot (placeholder — swap for an illustration / UI later) */}
+              <div class={textFirst ? 'lg:order-2' : 'lg:order-1'}>
+                <div class="tl-media flex min-h-[190px] items-center justify-center rounded-2xl border border-dashed border-zinc-300 bg-white/70 p-6">
+                  <div class="flex flex-col items-center text-center">
+                    <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-zinc-100 text-zinc-400">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="4" width="18" height="16" rx="2.5" stroke="currentColor" stroke-width="1.8" />
+                        <circle cx="8.5" cy="9.5" r="1.6" stroke="currentColor" stroke-width="1.6" />
+                        <path d="M4 17l4.5-4.5 3 3 4-4L20 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    <span class="mt-2.5 font-mono text-[11px] uppercase tracking-[0.06em] text-zinc-400">
+                      Ilustrasi / UI · Langkah {s.no}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <!-- closing line -->
+    <p class="mx-auto mt-14 max-w-[600px] text-center text-[14.5px] leading-[1.6] text-zinc-500">
+      Bekerja 24 jam di semua kanal — WhatsApp, email, dan live chat website mengalir ke satu inbox terpadu, dibantu AI
+      Agent yang benar-benar paham hotel Anda.
+    </p>
+  </div>
+</section>
+
+<style>
+  /* Steps + nodes pop in, staggered, once the section scrolls into view */
+  .act,
+  .node {
+    opacity: 0;
+  }
+  #problem.in-view .act,
+  #problem.in-view .node {
+    animation: actPop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--d, 0s);
+  }
+  @keyframes actPop {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* The glowing spine fills top -> bottom */
+  .spine-fill {
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: top;
+  }
+  #problem.in-view .spine-fill {
+    animation: spineFill 1.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation-delay: 0.25s;
+  }
+  @keyframes spineFill {
+    to {
+      transform: translateX(-50%) scaleY(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .act,
+    .node {
+      opacity: 1 !important;
+      animation: none !important;
+    }
+    .spine-fill {
+      transform: translateX(-50%) scaleY(1) !important;
+      animation: none !important;
+    }
+  }
+</style>
+
+<script>
+  const section = document.getElementById('problem');
+  if (section) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            section.classList.add('in-view');
+            io.disconnect();
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    io.observe(section);
+  }
+</script>
