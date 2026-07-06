@@ -78,21 +78,56 @@ const steps = [
                 <p class="mt-2.5 text-[14.5px] leading-[1.6] text-zinc-600">{s.body}</p>
               </div>
 
-              {/* media slot (placeholder — swap for an illustration / UI later) */}
+              {/* media slot — minimal UI relevant to each step */}
               <div class={textFirst ? 'lg:order-2' : 'lg:order-1'}>
-                <div class="tl-media flex min-h-[190px] items-center justify-center rounded-2xl border border-dashed border-zinc-300 bg-white/70 p-6">
-                  <div class="flex flex-col items-center text-center">
-                    <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-zinc-100 text-zinc-400">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                        <rect x="3" y="4" width="18" height="16" rx="2.5" stroke="currentColor" stroke-width="1.8" />
-                        <circle cx="8.5" cy="9.5" r="1.6" stroke="currentColor" stroke-width="1.6" />
-                        <path d="M4 17l4.5-4.5 3 3 4-4L20 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                    <span class="mt-2.5 font-mono text-[11px] uppercase tracking-[0.06em] text-zinc-400">
-                      Ilustrasi / UI · Langkah {s.no}
-                    </span>
-                  </div>
+                <div class="rounded-2xl border border-zinc-200 bg-white p-4 shadow-[0_14px_34px_-24px_rgba(24,24,27,0.35)]">
+                  {s.no === '01' && (
+                    <>
+                      <div class="mb-3 flex items-center gap-2">
+                        <span class="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-status-bad px-1.5 text-[11px] font-bold text-white">1</span>
+                        <span class="text-[12px] font-semibold text-zinc-500">Belum dibaca</span>
+                      </div>
+                      <div class="flex justify-end">
+                        <div class="max-w-[88%] rounded-2xl rounded-br-md bg-brand px-3.5 py-2.5 text-[13px] leading-[1.5] text-white">
+                          Masih ada kamar untuk long weekend depan? Yang menghadap sawah.
+                          <span class="mt-1 block text-right text-[10px] text-white/70">23:47</span>
+                        </div>
+                      </div>
+                    </>
+                  )}
+
+                  {s.no === '02' && (
+                    <div class="flex flex-col items-start">
+                      <div class="mb-1.5 flex items-center gap-1.5">
+                        <img src="/assets/logos/guestchat.webp" alt="GuestChat" width="16" height="16" class="h-4 w-4 flex-none rounded" />
+                        <span class="text-[11px] font-semibold text-zinc-500">Dibalas AI Agent</span>
+                      </div>
+                      <div class="relative max-w-[92%] rounded-2xl rounded-bl-md bg-mist px-3.5 py-2.5 text-[13px] leading-[1.55] text-forest-900">
+                        <span class="typing absolute inset-0 flex items-center justify-center gap-1.5">
+                          <i></i><i></i><i></i>
+                        </span>
+                        <span class="ai-text">
+                          Malam, Pak Andra. Kamar Sawah View tersedia 18–20 Juli, Rp1.450.000/malam termasuk sarapan. Saya
+                          amankan sekarang?
+                          <span class="mt-1 block text-right text-[10px] text-forest-600/70">23:47</span>
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  {s.no === '03' && (
+                    <div class="rounded-xl border border-brand-100 bg-brand-50/60 p-3.5">
+                      <div class="flex items-center gap-2">
+                        <span class="check-badge flex h-5 w-5 flex-none items-center justify-center rounded-full bg-brand text-white">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                            <path d="M20 6 9 17l-5-5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </span>
+                        <span class="text-[13.5px] font-bold text-brand-dark">Reservasi terkonfirmasi</span>
+                      </div>
+                      <div class="mt-2 text-[13px] leading-[1.5] text-zinc-600">Andra · Kamar Sawah View · 18–20 Juli</div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -146,15 +181,70 @@ const steps = [
     }
   }
 
+  /* Step 2: typing dots first, then reveal the AI reply (text reserves the size) */
+  .ai-text {
+    opacity: 0;
+  }
+  #problem.in-view .ai-text {
+    animation: fadeIn 0.4s ease both;
+    animation-delay: 1.5s;
+  }
+  #problem.in-view .typing {
+    animation: hideTyping 0.25s ease both;
+    animation-delay: 1.5s;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes hideTyping {
+    to { opacity: 0; }
+  }
+  .typing i {
+    display: block;
+    height: 6px;
+    width: 6px;
+    border-radius: 999px;
+    background: var(--color-forest-600);
+    opacity: 0.5;
+  }
+  #problem.in-view .typing i {
+    animation: bounce 1.2s ease-in-out infinite;
+  }
+  .typing i:nth-child(2) { animation-delay: 0.15s; }
+  .typing i:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.45; }
+    30% { transform: translateY(-4px); opacity: 0.9; }
+  }
+
+  /* Step 3: confirmation check pops in */
+  .check-badge {
+    opacity: 0;
+  }
+  #problem.in-view .check-badge {
+    animation: checkPop 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 1.1s;
+  }
+  @keyframes checkPop {
+    from { opacity: 0; transform: scale(0.4); }
+    to { opacity: 1; transform: none; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .act,
-    .node {
+    .node,
+    .ai-text,
+    .check-badge {
       opacity: 1 !important;
       animation: none !important;
     }
     .spine-fill {
       transform: translateX(-50%) scaleY(1) !important;
       animation: none !important;
+    }
+    .typing {
+      display: none !important;
     }
   }
 </style>

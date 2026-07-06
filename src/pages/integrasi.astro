@@ -1,0 +1,222 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Footer from '../components/Footer.astro';
+import { waHref } from '../data/site';
+
+// Platform yang menghubungkan sumber percakapan ke GuestChat.
+// `mark` = monogram sementara sampai file logo tersedia di /assets/logos.
+const platforms = [
+  {
+    mark: 'M',
+    logo: '/assets/meta-logo.webp',
+    name: 'Meta',
+    category: 'Sumber resmi',
+    body: 'Meta adalah pemilik WhatsApp, Instagram, dan Facebook Messenger. Lewat WhatsApp Business Platform (Cloud API) dan Graph API, GuestChat terhubung langsung ke ketiga kanal itu — resmi dan dikelola di infrastruktur Meta sendiri.',
+    points: [
+      { title: 'WhatsApp Cloud API resmi', body: 'Kirim dan terima pesan lewat API resmi Meta, tanpa perantara.' },
+      { title: 'Instagram DM & Messenger', body: 'Balas pesan Instagram dan Facebook dari inbox yang sama.' },
+      { title: 'Stabil dan sesuai kebijakan', body: 'Koneksi official yang mengikuti aturan platform.' },
+    ],
+    enables: [
+      { label: 'WhatsApp Cloud API', logo: 'whatsapp' },
+      { label: 'Instagram DM', logo: 'instagram' },
+      { label: 'Facebook Messenger', logo: 'facebook' },
+    ],
+  },
+  {
+    mark: 'Q',
+    logo: '/assets/qontak-logo.png',
+    name: 'Qontak',
+    category: 'WhatsApp Business API resmi (BSP)',
+    body: 'Mekari Qontak adalah Official Meta Business Solution Provider di Indonesia. Lewat Qontak, hotel Anda memakai nomor WhatsApp Business API resmi — lengkap dengan centang hijau, broadcast, dan template pesan yang disetujui.',
+    points: [
+      { title: 'Centang hijau terverifikasi', body: 'Profil bisnis resmi yang tepercaya di mata tamu.' },
+      { title: 'Broadcast dan template resmi', body: 'Kirim konfirmasi, pengingat, dan promo sesuai kebijakan WhatsApp.' },
+      { title: 'Penyedia resmi di Indonesia', body: 'Dukungan BSP lokal untuk proses verifikasi nomor.' },
+    ],
+    enables: [
+      { label: 'WhatsApp', logo: 'whatsapp' },
+      { label: 'Line', logo: 'line' },
+      { label: 'Telegram', logo: 'telegram' },
+    ],
+  },
+  {
+    mark: 'F',
+    logo: '/assets/fonnte-logo.jpg',
+    name: 'Fonnte',
+    category: 'WhatsApp gateway',
+    body: 'Fonnte adalah gateway WhatsApp asal Indonesia yang ringan dan cepat dipasang. Cocok untuk hotel yang ingin mulai cepat dengan notifikasi, auto-reply, dan broadcast lewat API/webhook tanpa proses BSP yang formal.',
+    points: [
+      { title: 'Pasang dalam hitungan menit', body: 'Hubungkan nomor WhatsApp tanpa proses BSP yang formal.' },
+      { title: 'Hemat biaya', body: 'Alternatif ekonomis untuk kebutuhan pesan dasar.' },
+      { title: 'Otomatisasi lewat API', body: 'Notifikasi, auto-reply, dan broadcast via API/webhook.' },
+    ],
+    enables: [
+      { label: 'WhatsApp gateway', logo: 'whatsapp' },
+      { label: 'Setup cepat' },
+    ],
+  },
+  {
+    mark: 'C',
+    logo: '/assets/channex-logo.png',
+    name: 'Channex',
+    category: 'Channel manager OTA',
+    body: 'Channex adalah channel manager yang menghubungkan hotel Anda ke Booking.com, Airbnb, Expedia, dan puluhan OTA lain. Selain reservasi, Anda juga bisa memantau dan membalas ulasan tamu dari OTA — semuanya dari GuestChat.',
+    points: [
+      { title: 'Puluhan OTA, satu koneksi', body: 'Booking.com, Airbnb, Expedia, dan banyak lagi lewat satu integrasi.' },
+      { title: 'Lihat & balas review OTA', body: 'Pantau ulasan tamu dari OTA dan balas langsung lewat integrasi Channex — tanpa membuka dasbor tiap platform.' },
+      { title: 'Reservasi masuk otomatis', body: 'Booking baru dari OTA langsung tampil di GuestChat, siap dikonfirmasi dan ditindaklanjuti.' },
+    ],
+    enables: [
+      { label: 'Booking.com', logo: 'booking' },
+      { label: 'Airbnb', logo: 'airbnb' },
+      { label: 'Expedia', logo: 'expedia' },
+    ],
+  },
+];
+---
+
+<Layout
+  title="Integrasi — GuestChat"
+  description="GuestChat terhubung ke WhatsApp, Instagram, Messenger, dan OTA lewat Meta, Qontak, Fonnte, dan Channex. Semua percakapan tamu mengalir ke satu inbox."
+>
+  <Nav />
+
+  <main class="overflow-x-hidden">
+    <!-- ===== Hero detail ===== -->
+    <section class="relative overflow-hidden border-b border-[#f0f0f2] bg-mist">
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute left-1/2 top-0 h-[460px] w-[460px] -translate-x-1/2 rounded-full opacity-60 blur-3xl"
+        style="background:radial-gradient(circle,rgba(163,217,119,0.30) 0%,rgba(163,217,119,0) 70%);"
+      >
+      </div>
+
+      <div class="relative z-[2] mx-auto max-w-[1120px] px-5 py-16 text-center sm:px-7 md:py-24">
+        <nav class="mb-7 flex items-center justify-center gap-2 text-[13px] font-medium text-zinc-500" aria-label="Breadcrumb">
+          <a href="/" class="no-underline transition-colors hover:text-brand">Beranda</a>
+          <span aria-hidden="true">/</span>
+          <span class="text-zinc-700">Integrasi</span>
+        </nav>
+
+        <span class="font-mono text-xs font-medium uppercase tracking-[0.05em] text-brand">Integrasi</span>
+        <h1 class="mx-auto mt-3.5 max-w-[720px] text-[34px] font-extrabold leading-[1.08] tracking-[-0.03em] text-balance sm:text-[44px]">
+          Terhubung dengan platform yang sudah Anda pakai
+        </h1>
+        <p class="mx-auto mb-9 mt-[18px] max-w-[560px] text-[17px] leading-[1.65] text-zinc-600">
+          GuestChat tidak menggantikan alat Anda — ia menyatukannya. Lewat Meta, Qontak, Fonnte, dan Channex, setiap
+          pesan dari WhatsApp, media sosial, hingga OTA mengalir ke satu inbox.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3.5">
+          <a
+            href="/#demo"
+            class="group inline-flex items-center gap-[9px] rounded-xl bg-brand px-[26px] py-[15px] text-[16px] font-bold text-white no-underline shadow-[0_8px_22px_rgba(59,122,46,0.28)] transition-all hover:-translate-y-0.5 hover:bg-brand-dark"
+          >
+            Coba Gratis
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" class="transition-transform group-hover:translate-x-0.5"
+              ><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg
+            >
+          </a>
+          <a
+            href={waHref}
+            class="inline-flex items-center gap-[9px] rounded-xl border-[1.5px] border-[#d9dcdd] bg-white/80 px-6 py-[15px] text-[16px] font-semibold text-zinc-900 no-underline backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-brand hover:text-brand"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+              ><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Z" stroke="#25aa5a" stroke-width="2" stroke-linejoin="round"></path></svg
+            >
+            Tanya soal integrasi
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section per platform ===== -->
+    {
+      platforms.map((p, i) => (
+        <section class={`border-b border-[#f0f0f2] ${i % 2 === 1 ? 'bg-zinc-50' : 'bg-white'}`}>
+          <div class="mx-auto grid max-w-[1120px] grid-cols-1 items-center gap-12 px-5 py-[72px] sm:px-7 lg:grid-cols-2 lg:gap-[58px]">
+            <div class={i % 2 === 1 ? 'lg:order-2' : ''}>
+              <p class="text-[16px] leading-[1.65] text-zinc-600">{p.body}</p>
+              <div class="mt-6 flex flex-col gap-3.5">
+                {p.points.map((pt) => (
+                  <div class="flex items-start gap-3">
+                    <span class="mt-0.5 flex h-[22px] w-[22px] flex-none items-center justify-center rounded-md bg-brand-50">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                        <path d="M20 6 9 17l-5-5" stroke="var(--color-brand)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    <div>
+                      <div class="text-[15px] font-bold text-zinc-900">{pt.title}</div>
+                      <div class="mt-0.5 text-[14px] leading-[1.5] text-zinc-500">{pt.body}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div class={i % 2 === 1 ? 'lg:order-1' : ''}>
+              <div class="rounded-3xl border border-[#ececee] bg-white p-6 shadow-[0_16px_40px_rgba(15,26,12,0.06)] sm:p-7">
+                <div class="flex items-center gap-3">
+                  <span class="flex h-11 w-11 flex-none items-center justify-center rounded-xl border border-[#ececee] bg-white p-2">
+                    <img src={p.logo} alt="" class="h-full w-full object-contain" loading="lazy" />
+                  </span>
+                  <div>
+                    <h2 class="text-[16px] font-extrabold text-zinc-900">{p.name}</h2>
+                    <div class="text-[12.5px] text-zinc-500">{p.category}</div>
+                  </div>
+                </div>
+                <div class="my-5 h-px bg-[#ececee]" />
+                <div class="font-mono text-[11px] uppercase tracking-[0.08em] text-zinc-400">Yang diaktifkan</div>
+                <div class="mt-3 flex flex-col gap-2.5">
+                  {p.enables.map((e) => (
+                    <div class="flex items-center gap-3 rounded-xl border border-[#ececee] bg-white px-3.5 py-2.5">
+                      {e.logo ? (
+                        <img src={`/assets/logos/${e.logo}.webp`} alt="" width="22" height="22" class="h-[22px] w-[22px] flex-none rounded-[5px]" loading="lazy" />
+                      ) : (
+                        <span class="flex h-[22px] w-[22px] flex-none items-center justify-center rounded-[5px] bg-brand-50">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                            <path d="M20 6 9 17l-5-5" stroke="var(--color-brand)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </span>
+                      )}
+                      <span class="text-[14px] font-semibold text-zinc-800">{e.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      ))
+    }
+
+    <!-- ===== Butuh integrasi lain ===== -->
+    <section class="bg-zinc-50">
+      <div class="mx-auto max-w-[1120px] px-5 py-16 sm:px-7">
+        <div class="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#ececee] bg-white px-6 py-7 sm:px-8">
+          <div>
+            <h2 class="text-[20px] font-bold text-zinc-900">Butuh integrasi lain?</h2>
+            <p class="mt-1 max-w-[520px] text-[15px] leading-[1.55] text-zinc-600">
+              Pakai channel manager atau gateway yang berbeda? Ceritakan kebutuhan hotel Anda dan tim kami bantu carikan jalannya.
+            </p>
+          </div>
+          <a
+            href={waHref}
+            class="inline-flex flex-none items-center gap-[9px] rounded-xl bg-brand px-6 py-[13px] text-[15px] font-bold text-white no-underline transition-colors hover:bg-brand-dark"
+          >
+            Hubungi tim
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+              ><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg
+            >
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <FinalCta />
+  </main>
+
+  <Footer />
+</Layout>
